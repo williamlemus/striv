@@ -36,23 +36,23 @@ strīv is a web application inspired by Strava built using Ruby on Rails and Rea
 
 **Objective:** Routes can be created, read, edited and destroyed through the API.
 
-## Phase 3: Workouts (2 days)
+### Phase 3: Workouts (2 days)
 
 **Objective:** Routes belong to workouts that can be created, read, edited and destroyed through the API.
 
-## Phase 4: Workout Feed (1 day)
+### Phase 4: Workout Feed (1 day)
 
 **Objective:** Workout Feed can be viewed for the given user. 
 
-## Phase 5: Profile (1 day)
+### Phase 5: Profile (1 day)
 
 **Objective:** User can view profile page and edit information through the API. User can view other users profiles.
 
-## Phase 6: Workout Stats/Totals (1 day)
+### Phase 6: Workout Stats/Totals (1 day)
 
 **Objective:** User will see Stats and totals in Workout feed and Profile page.
 
-## Phase 7: Comments (1 day)
+### Phase 7: Comments (1 day)
 
 **Objective:** Comment can be created, read, edited and destroyed through the API.
 
