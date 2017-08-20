@@ -20,11 +20,11 @@ strīv is a web application inspired by Strava built using Ruby on Rails and Rea
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierachy.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
-[sample-state]: docs/sample-state.md
+[wireframes]: wireframes
+[components]: component-hierachy.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
+[sample-state]: sample-state.md
 
 ## Implementation Timeline
 
