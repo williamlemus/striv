@@ -23,8 +23,8 @@
       },
     },
     stats: {
-      totalDistance: 100,
-      totalTime: 200,
+      totalDistance: 75,
+      totalTime: 130,
       totalWorkouts: 4
     },
     UserInfo: {
