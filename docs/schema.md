@@ -35,3 +35,4 @@ column name     | data type | details
 id              | integer   | not null, primary key
 user_id         | integer   | not null, foreign key (references users), indexed
 workout_id      | integer   | not null, foreign key (references workouts), indexed
+body            | text      | not null
