@@ -16,11 +16,29 @@
  - CreateRouteForm
 
 
-**WorkoutFeed**
+**WorkoutFeedContainer**
  - WorkoutIndexContainer
  - StatTotals
 
-**Ride**
- - RideDetails
+**Workout**
+ - WorkoutDetails
  - Map
- - RideStats
+ - WorkoutStats
+
+**Profile**
+ - WorkoutListContainer
+ - UserInfo
+ - Stats
+  + WeeklyStats
+  + StatsDetail
+
+
+## Routes
+|Path  | Component|
+|------|----------|
+| "/signup" | "AuthFormContainer" |
+| "/login" | "AuthFormContainer" |
+| "/profile" | "Profile" |
+| "/new-route" | "CreateRouteContainer" |
+| "/feed" | "WorkoutFeedContainer" |
+| "/workouts/:workoutid" | "WorkoutContainer" |
