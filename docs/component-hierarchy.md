@@ -29,8 +29,8 @@
  - WorkoutListContainer
  - UserInfo
  - Stats
-  + WeeklyStats
-  + StatsDetail
+    + WeeklyStats
+    + StatsDetail
 
 
 ## Routes
