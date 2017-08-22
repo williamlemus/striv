@@ -4,7 +4,7 @@
 html, head, body, header,
 nav, h1, a, ul, li, main,
 section, p, footer, small {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   border: 0;
   outline: 0;
@@ -24,4 +24,81 @@ footer, small {
 
 ul {
   list-style: none;
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+}
+
+.page{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100vw;
+  background-image: image-url('/assets/background.JPG');
+  background-size: cover;
+  height: 100vh;
+  align-items: center;
+  font-family: sans-serif, Arial, Helvetica;
+}
+
+.nav_bar{
+  width: 50vw;
+  box-sizing: border-box;
+  display: flex;
+  background-color: #DFBD79;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 0px 15px 5px 10px;
+}
+
+
+.logo{
+  font-family: 'Exo', sans-serif;
+  font-weight: bold;
+  font-size: 25pt;
+}
+
+.session_dialog{
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid darkgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  background-color: rgba(0,0,0,.5);
+  color: lightgrey;
+  width: 400px;
+  height: 35vh;
+}
+
+.session-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-btn{
+  background-color: green;
+  border-radius: 5px;
+  padding: 7px;
+  color: white;
+}
+
+.submit-btn:hover{
+  background-color: blue;
+}
+
+
+
+.nav-bar-link {
+  padding: 10px;
+}
+
+input {
+  margin: 15px;
 }

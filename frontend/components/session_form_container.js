@@ -3,7 +3,6 @@ import SessionForm from './session_form';
 import {login, logout, signup} from '../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return({
     loggedIn: Boolean(state.session.currentUser),
     errors: state.session.errors,
@@ -12,7 +11,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  debugger
   return({
     processForm: (user) => ( ownProps.match.path === '/login' ? dispatch(login(user)) : dispatch(signup(user)) )
   });

@@ -39,13 +39,10 @@ class SessionForm extends React.Component {
       );
     } else {
       return(
-        <div>
+        <div className='session_dialog'>
           <h1>
             {this.props.formType === "login" ? 'Log in' : "Sign up"}
           </h1>
-          <Link to={this.props.formType === 'login' ? 'signup' : 'login'}>
-            {this.props.formType === 'login' ? 'Sign up' : 'Log in'}
-          </Link>
           <ul>
             {
               this.props.errors.map((el) => {
@@ -53,13 +50,18 @@ class SessionForm extends React.Component {
               })
             }
           </ul>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className='session-form'>
             <label htmlFor="username">Username</label>
             <input type='text' id='username' name='username' onInput={this.handleInput}></input>
+            <br/>
             <label htmlFor="password">Password</label>
             <input type='password' id='password' name='password' onInput={this.handleInput}></input>
-            <input type='submit' value={this.props.formType === 'login' ? 'login' : 'signup'} />
+            <br/>
+            <input type='submit' className='submit-btn' value={this.props.formType === 'login' ? 'login' : 'signup'} />
           </form>
+          <Link to={this.props.formType === 'login' ? 'signup' : 'login'}>
+            {this.props.formType === 'login' ? 'Sign up' : 'Log in'}
+          </Link>
         </div>
       );
     }
