@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.login = actions.login;
 
   ReactDOM.render(<Root store={store} />, root);
 });
