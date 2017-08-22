@@ -33,6 +33,7 @@ gem 'jquery-rails'
 # gem 'capistrano-rails', group: :development
 group :production do
   gem 'newrelic_rpm'
+  gem 'mini_portile2'
 end
 
 group :development, :test do
