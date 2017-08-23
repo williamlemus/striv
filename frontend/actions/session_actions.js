@@ -13,17 +13,18 @@ export const receiveErrors = (errors) => ({
   errors: errors
 });
 
+
 export const login = (user) => (dispatch) => {
   return APIUtil.login(user)
-    .then(user => dispatch(receiveCurrentUser(user)), error => receiveErrors(error));
+    .then(user => dispatch(receiveCurrentUser(user)), error => dispatch(receiveErrors(error.responseJSON)));
 };
 
 export const signup = (user) => (dispatch) => {
   return APIUtil.signup(user)
-    .then(user => dispatch(receiveCurrentUser(user)), error => receiveErrors(error));
+    .then(user => dispatch(receiveCurrentUser(user)), error => dispatch(receiveErrors(error.responseJSON)));
 };
 
 export const logout = () => (dispatch) => {
   return APIUtil.logout()
-    .then(() => dispatch(receiveCurrentUser(null)), error => receiveErrors(error));
+    .then(() => dispatch(receiveCurrentUser(null)), error => dispatch(receiveErrors(error.responseJSON)));
 };

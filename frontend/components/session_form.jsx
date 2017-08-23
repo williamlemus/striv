@@ -15,8 +15,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
-    const user = Object.assign({}, this.state);
+    let user = Object.assign({}, this.state);
     this.props.processForm({user: user});
   }
 
@@ -46,7 +45,7 @@ class SessionForm extends React.Component {
           <ul>
             {
               this.props.errors.map((el) => {
-                return <li>{el}</li>
+                return <li className='error'>{el}</li>
               })
             }
           </ul>
