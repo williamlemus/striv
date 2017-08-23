@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleGuestClick = this.handleGuestClick.bind(this);
   }
 
   componentDidMount(){
@@ -21,6 +22,11 @@ class SessionForm extends React.Component {
     e.preventDefault();
     let user = Object.assign({}, this.state);
     this.props.processForm({user: user});
+  }
+
+  handleGuestClick(e){
+    const guest = {username: 'guest', password: 'password'}
+    this.props.processForm({user: guest});
   }
 
   handleInput(e){
@@ -48,11 +54,12 @@ class SessionForm extends React.Component {
           </h1>
           <ul>
             {
-              this.props.errors.map((el) => {
-                return <li className='error'>{el}</li>
+              this.props.errors.map((el, idx) => {
+                return <li className='error' key={idx}>{el}</li>
               })
             }
           </ul>
+
           <form onSubmit={this.handleSubmit} className='session-form'>
             <label htmlFor="username">Username</label>
             <input type='text' id='username' name='username' onInput={this.handleInput}></input>
@@ -62,6 +69,7 @@ class SessionForm extends React.Component {
             <br/>
             <input type='submit' className='submit-btn' value={this.props.formType === 'login' ? 'login' : 'signup'} />
           </form>
+          <button onClick={this.handleGuestClick} className='submit-btn guest-login-btn'>Guest Login </button>
           <Link to={this.props.formType === 'login' ? 'signup' : 'login'}>
             {this.props.formType === 'login' ? 'Sign up' : 'Log in'}
           </Link>

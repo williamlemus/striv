@@ -79,7 +79,7 @@ h1 {
   background-color: rgba(0,0,0,.6);
   color: lightgrey;
   width: 400px;
-  height: 360px;
+  height: 380px;
 }
 
 .session-form{
@@ -95,6 +95,8 @@ h1 {
   padding: 7px;
   color: white;
   height: 40px;
+  margin: 15px;
+  min-height: 20px;
 }
 
 .submit-btn:hover{
@@ -129,4 +131,12 @@ input {
 .error{
   color: #C13434;
   font-weight: bold;
+}
+
+.guest-login-btn{
+  background-color: #2A416E;
+}
+
+.guest-login-btn:hover{
+  background-color: #132852;
 }
