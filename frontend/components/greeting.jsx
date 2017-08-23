@@ -5,11 +5,11 @@ import {Link} from 'react-router-dom';
 class Greeting extends React.Component{
 
   render(){
+
     if(this.props.currentUser){
       return(
         <div>
           <nav className='nav_bar'>
-
               <div className='logo'>
                 strīv
               </div>
@@ -33,13 +33,9 @@ class Greeting extends React.Component{
 
                 <Link to='/signup' className="nav-bar-link">Signup</Link>
                 or
-                  <Link to='/login' className='nav-bar-link'>Login</Link>
+                <Link to='/login' className='nav-bar-link'>Login</Link>
               </div>
           </nav>
-          <div>
-            <h1>Greetings</h1>
-          </div>
-
         </div>
       );
     }

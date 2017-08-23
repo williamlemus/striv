@@ -33,6 +33,10 @@ body{
   background-color: whitesmoke;
 }
 
+h1 {
+  font-size: 30pt;
+}
+
 .page{
   display: flex;
   justify-content: flex-start;
@@ -46,7 +50,7 @@ body{
 }
 
 .nav_bar{
-  width: 50vw;
+  width: 55vw;
   box-sizing: border-box;
   display: flex;
   background-color: #DFBD79;
@@ -65,16 +69,17 @@ body{
 
 .session_dialog{
   padding: 20px;
+  margin-top: 20px;
   border-radius: 5px;
   border: 1px solid darkgrey;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0,0,0,.6);
   color: lightgrey;
   width: 400px;
-  height: 35vh;
+  height: 360px;
 }
 
 .session-form{
@@ -83,22 +88,40 @@ body{
 }
 
 .submit-btn{
-  background-color: green;
+  background-color: #286C4B;
+  transition: all 1s;
   border-radius: 5px;
+  border-width: 1px;
   padding: 7px;
   color: white;
+  height: 40px;
 }
 
 .submit-btn:hover{
-  background-color: blue;
+  background-color: #145636;
+  cursor: pointer;
 }
 
+a:hover{
+  color: whitesmoke;
 
+}
+
+.nav-bar-link:hover{
+  color: lightgrey;
+  border-color: whitesmoke;
+  background-color: #B58F44;
+}
 
 .nav-bar-link {
   padding: 10px;
+  border: 1px darkgrey solid;
+  border-radius: 2px;
+  margin: 0 2px 0 2px;
+  transition: all .8s;
 }
 
 input {
   margin: 15px;
+  min-height: 20px;
 }

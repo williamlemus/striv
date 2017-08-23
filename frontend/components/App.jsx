@@ -8,7 +8,6 @@ const App = () => {
   return(
     <div className='page'>
       <header>
-
         <GreetingContainer />
       </header>
       <AuthRoute path="/login" component={SessionFormContainer} />
