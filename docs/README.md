@@ -1,4 +1,10 @@
 # strīv
+[Heroku link][heroku]
+
+[Trello link][trello]
+
+[heroku]: https://striv.herokuapp.com
+[trello]: https://trello.com/b/dh37RTyS/str%C4%ABv
 
 ## Minimum Viable Product
 
