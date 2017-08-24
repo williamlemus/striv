@@ -42,11 +42,14 @@ h1 {
   justify-content: flex-start;
   flex-direction: column;
   width: 100vw;
-  background-image: image-url('background.JPG');
   background-size: cover;
   height: 100vh;
   align-items: center;
   font-family: sans-serif, Arial, Helvetica;
+}
+
+.login-background {
+  background-image: image-url('background.JPG');
 }
 
 .nav_bar{
@@ -89,6 +92,7 @@ h1 {
 
 .submit-btn{
   background-color: #286C4B;
+  border-style: outset;
   transition: all 1s;
   border-radius: 5px;
   border-width: 1px;
@@ -139,4 +143,16 @@ input {
 
 .guest-login-btn:hover{
   background-color: #132852;
+}
+
+.input-text-login {
+  background-color: rgba(0,0,0,.7);
+  color: whitesmoke;
+}
+
+
+/** Greetings **/
+#map-container{
+  width: 40vw;
+  height: 50vh;
 }
