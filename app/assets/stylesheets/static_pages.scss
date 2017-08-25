@@ -79,15 +79,16 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
-  background-color: rgba(0,0,0,.6);
+  background-color: rgba(0,0,0,.65);
   color: lightgrey;
   width: 400px;
-  height: 380px;
+  min-height: 420px;
 }
 
 .session-form{
   display: flex;
   flex-direction: column;
+  min-height: 270px;
 }
 
 .submit-btn{
@@ -129,12 +130,18 @@ a:hover{
 
 input {
   margin: 15px;
-  min-height: 20px;
+  min-height: 30px;
+}
+
+input[type=text], input[type=password]{
+  font-size: 24px;
+  text-indent: 8px;
 }
 
 .error{
   color: #C13434;
   font-weight: bold;
+  padding-bottom: 3px;
 }
 
 .guest-login-btn{
@@ -150,9 +157,4 @@ input {
   color: whitesmoke;
 }
 
-
 /** Greetings **/
-#map-container{
-  width: 40vw;
-  height: 50vh;
-}

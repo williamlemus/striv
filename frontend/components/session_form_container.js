@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return({
-    processForm: (user) => ( ownProps.match.path === '/login' ? dispatch(login(user)) : dispatch(signup(user)) ),
+    processForm: (user) => ( ownProps.match.path === '/login' || (user.user.username === 'guest' && user.user.password=== 'password') ? dispatch(login(user)) : dispatch(signup(user)) ),
     clearErrors: () => dispatch(receiveErrors([]))
   });
 };
