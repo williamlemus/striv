@@ -24,8 +24,12 @@ class Api::WorkoutsController < ApplicationController
 
   def destroy
     @workout = Workout.find_by(id: params[:id])
-    @workout.destroy
-    render :show
+    if @workout
+      @workout.destroy
+      render :show
+    else
+      render json: ["Workout does not exist"], status: 422
+    end
   end
 
   private
