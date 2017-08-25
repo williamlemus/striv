@@ -19,7 +19,7 @@ class NewRoute extends React.Component{
         hours: '',
         minutes: '',
         seconds: '',
-        date: '',
+        state_datetime: '',
         description: '',
       }
     }
@@ -133,6 +133,7 @@ date = new Date().toLocaleString("en-gb");
 
    handleSubmit(e){
      e.preventDefault();
+     // this.props.currentUser.id --> remember to send!
      debugger
    }
 
@@ -181,7 +182,7 @@ date = new Date().toLocaleString("en-gb");
           <label htmlFor='date'>
             Date
           </label>
-          <input id='date' type='datetime-local' defaultValue={this.getCurrentDate()} name="date" />
+          <input id='date' type='datetime-local' defaultValue={this.getCurrentDate()} name="start_datetime" />
           <label htmlFor='description'>Description</label>
           <textarea id='description' name='description'></textarea>
           <input type='submit' onClick={this.handleSubmit} value='Create Workout'/>
