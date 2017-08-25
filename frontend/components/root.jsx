@@ -7,7 +7,7 @@ export const Root = (props) => {
   return(
     <Provider store={props.store}>
       <HashRouter>
-        <App />
+        <App store={props.store}/>
       </HashRouter>
     </Provider>
   );
