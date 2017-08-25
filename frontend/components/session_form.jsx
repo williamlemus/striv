@@ -62,10 +62,10 @@ class SessionForm extends React.Component {
 
           <form onSubmit={this.handleSubmit} className='session-form'>
             <label htmlFor="username">Username</label>
-            <input type='text' id='username' name='username' onInput={this.handleInput}></input>
+            <input className='input-text-login' type='text' id='username' name='username' onInput={this.handleInput}></input>
             <br/>
             <label htmlFor="password">Password</label>
-            <input type='password' id='password' name='password' onInput={this.handleInput}></input>
+            <input className='input-text-login' type='password' id='password' name='password' onInput={this.handleInput}></input>
             <br/>
             <input type='submit' className='submit-btn' value={this.props.formType === 'login' ? 'login' : 'signup'} />
           </form>
