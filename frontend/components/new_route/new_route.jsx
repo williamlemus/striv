@@ -115,7 +115,6 @@ class NewRoute extends React.Component{
   }
 
   createRoute(){
-    // go to step two
     if(this.state.step === 1 && this.state.activeCreateButton){
       this.setState({step: 2});
     }
@@ -126,7 +125,7 @@ class NewRoute extends React.Component{
     let date =
 date = new Date().toLocaleString("en-gb");
     let formattedDate = date.slice(6,10) + '-' + date.slice(3,5) + '-' + date.slice(0,2) + 'T' + date.slice(12,17);
-    this.state.date = formattedDate;
+    this.state.start_datetime = formattedDate;
     return formattedDate;
    }
 
@@ -135,6 +134,14 @@ date = new Date().toLocaleString("en-gb");
      e.preventDefault();
      // this.props.currentUser.id --> remember to send!
      debugger
+     let workoutDetails = Object.assign({}, this.state);
+     delete workoutDetails.activeCreateButton;
+     delete workoutDetails.step;
+     workoutDetails.user_id = this.props.currentUser.id;
+     debugger;
+     workoutDetails.distance = workoutDetails.distance.value;
+     //dispatch time!
+     this.props.newWorkout(workoutDetails);
    }
 
    handleInput(e){
