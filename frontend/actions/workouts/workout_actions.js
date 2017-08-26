@@ -18,8 +18,18 @@ export const receiveWorkout = (workout) => {
   })
 };
 
+export const receiveErrors = (error) => {
+  type: RECEIVE_ERRORS,
+  error
+}
+
 
 export const newWorkout = (workout) => (dispatch) => {
     return WorkoutAPI.newWorkout(workout)
       .then(workout => dispatch(receiveWorkout(workout)), error => dispatch(receiveErrors(error.responseJSON)));
 };
+
+export const getWorkout = (workoutid) => dispatch => {
+  return WorkoutAPI.getWorkout(workoutid)
+    .then(workout => dispatch(receiveWorkout(workout)), error => dispatch(receiveErrors(error.responseJSON)));
+}

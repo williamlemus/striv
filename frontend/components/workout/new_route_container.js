@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import NewRoute from './new_route';
-import { newWorkout } from '../../actions/workouts/workout_actions'
+import { newWorkout } from '../../actions/workouts/workout_actions';
 
 
 const mapStateToProps = (state) => ({
