@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect, withRouter } from 'react-router-dom';
 
 class NewRoute extends React.Component{
     constructor(props){
@@ -25,12 +26,15 @@ class NewRoute extends React.Component{
     }
 
     componentDidMount(){
-      this.initDrawing();
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.position = position;
+        this.initDrawing();
+      });
     }
 
     initDrawing(){
       const mapOptions = {
-        center: { lat: 37.7758, lng: -122.435 },
+        center: { lat: this.position.coords.latitude, lng: this.position.coords.longitude },
         zoom: 13,
         disableDefaultUI: true,
         zoomControl: true
@@ -38,8 +42,8 @@ class NewRoute extends React.Component{
 
       this.map = new google.maps.Map(this.mapNode, mapOptions);
 
-      let bikeLayer = new google.maps.BicyclingLayer();
-      bikeLayer.setMap(this.map);
+      this.bikeLayer = new google.maps.BicyclingLayer();
+      this.bikeLayer.setMap(this.map);
 
       this.directionsService = new google.maps.DirectionsService;
       this.directionsDisplay = new google.maps.DirectionsRenderer({
@@ -132,16 +136,16 @@ date = new Date().toLocaleString("en-gb");
 
    handleSubmit(e){
      e.preventDefault();
-     // this.props.currentUser.id --> remember to send!
-     debugger
      let workoutDetails = Object.assign({}, this.state);
      delete workoutDetails.activeCreateButton;
      delete workoutDetails.step;
      workoutDetails.user_id = this.props.currentUser.id;
-     debugger;
      workoutDetails.distance = workoutDetails.distance.value;
      //dispatch time!
-     this.props.newWorkout(workoutDetails);
+     this.props.newWorkout(workoutDetails).then((res) =>{
+       this.props.history.push(`/workouts/${res.workout.id}`);
+     });
+
    }
 
    handleInput(e){
@@ -199,4 +203,4 @@ date = new Date().toLocaleString("en-gb");
   }
 }
 
-export default NewRoute;
+export default withRouter(NewRoute);

@@ -1,9 +1,10 @@
 import React from 'react';
 import GreetingContainer from './greeting_container';
 import SessionFormContainer from './session_form_container';
-import NewRouteContainer from './new_route/new_route_container';
-import {Route} from 'react-router-dom';
-import {AuthRoute} from '../util/route_util';
+import NewRouteContainer from './workout/new_route_container';
+import ShowWorkoutContainer from './workout/show_workout_container';
+import {Route, Switch} from 'react-router-dom';
+import {AuthRoute, ProtectedRoute} from '../util/route_util';
 
 const App = (props) => {
   let background = props.store.currentUser ? 'page' : 'page login-background'
@@ -14,8 +15,14 @@ const App = (props) => {
 
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
-      <Route path='/new-route' exact component={NewRouteContainer} />
-
+      <Switch>
+        {
+          //must define a default home(activity feed) before changing the / path
+        }
+        <ProtectedRoute path='/workouts/:id' exact component={ShowWorkoutContainer} />
+        <ProtectedRoute path='/' exact component={NewRouteContainer} />
+        <ProtectedRoute path='/new-route' exact component={NewRouteContainer} />
+      </Switch>
     </div>
   );
 };
