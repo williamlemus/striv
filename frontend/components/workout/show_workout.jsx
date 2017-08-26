@@ -51,8 +51,8 @@ class ShowWorkout extends React.Component{
             <li>{workout.distance/1000}km</li>
             {/* need function to make time into HH:MM:ss*/}
             <li>{workout.workout_time/60}min</li>
-            <li>{workout.type}</li>
-            <li>{workout.start_datetime}</li>
+            <li>{workout.exercise}</li>
+            <li>{new Date(workout.start_datetime).toLocaleString()}</li>
           </ul>
           <div id='map-container' ref={ map => this.mapNode = map}>
           </div>

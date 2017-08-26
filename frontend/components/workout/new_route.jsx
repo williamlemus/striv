@@ -10,6 +10,7 @@ class NewRoute extends React.Component{
       this.toggleCreateButton = this.toggleCreateButton.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleInput = this.handleInput.bind(this);
+      const defaultDate = this.getCurrentDate();
       this.state= {
         activeCreateButton: false,
         polyline: '',
@@ -20,7 +21,7 @@ class NewRoute extends React.Component{
         hours: '',
         minutes: '',
         seconds: '',
-        state_datetime: '',
+        start_datetime: defaultDate,
         description: '',
       }
     }
@@ -129,7 +130,6 @@ class NewRoute extends React.Component{
     let date =
 date = new Date().toLocaleString("en-gb");
     let formattedDate = date.slice(6,10) + '-' + date.slice(3,5) + '-' + date.slice(0,2) + 'T' + date.slice(12,17);
-    this.state.start_datetime = formattedDate;
     return formattedDate;
    }
 
@@ -142,6 +142,7 @@ date = new Date().toLocaleString("en-gb");
      workoutDetails.user_id = this.props.currentUser.id;
      workoutDetails.distance = workoutDetails.distance.value;
      //dispatch time!
+     workoutDetails.start_datetime = new Date(workoutDetails.start_datetime).toISOString();
      this.props.newWorkout(workoutDetails).then((res) =>{
        this.props.history.push(`/workouts/${res.workout.id}`);
      });
