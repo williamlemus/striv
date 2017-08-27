@@ -112,7 +112,7 @@
   flex-direction: column;
 }
 
-.workout-title h5 {
+.workout-date {
   color: grey;
   font-weight: 300;
   height: 15px;
@@ -163,4 +163,25 @@
   color: grey;
   font-weight: 300;
   font-size: 15px;
+}
+
+.workout-index {
+  // will have
+  margin-top: 80px;
+  width: 50%;
+}
+
+.workout-index div {
+  padding: 30px 0 30px 0;
+}
+
+.workout-index-title {
+  padding: 10px 0 10px 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+}
+
+.workout-index-title a:hover{
+  color: #0D1F30;
+  text-decoration: underline;
 }

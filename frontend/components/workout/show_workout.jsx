@@ -49,7 +49,7 @@ class ShowWorkout extends React.Component{
             </div>
             <div className='workout-info'>
               <div className='workout-title'>
-                <h5>{new Date(workout.start_datetime).toLocaleString()}</h5>
+                <h5 className='workout-date'>{new Date(workout.start_datetime).toLocaleString()}</h5>
                 <h3>
                   {workout.title}
                 </h3>
@@ -65,7 +65,7 @@ class ShowWorkout extends React.Component{
                     </span>
                   </li>
                   {/* need function to make time into HH:MM:ss*/}
-                  <li>{workout.workout_time/60} min
+                  <li>{workout.workout_time/60}min
                     <span className='workout-stats-label'>
                       Time
                     </span>
