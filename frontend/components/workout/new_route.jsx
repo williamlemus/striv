@@ -164,7 +164,7 @@ date = new Date().toLocaleString("en-gb");
       return(<div>
 
         <div id='create-route-button' className={activeButtonStatus} onClick={this.createRoute}>
-          Save
+          Create Route
         </div>
         <div id='map-container' ref={ map => this.mapNode = map}>
         </div>
