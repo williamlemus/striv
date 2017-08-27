@@ -118,6 +118,7 @@ a:hover{
   color: lightgrey;
   border-color: whitesmoke;
   background-color: #B58F44;
+  cursor: pointer;
 }
 
 .nav-bar-link {
@@ -131,6 +132,7 @@ a:hover{
 input {
   margin: 15px;
   min-height: 30px;
+  font-size: 18px;
 }
 
 input[type=text], input[type=password]{

@@ -16,7 +16,13 @@
 #
 
 class Workout < ApplicationRecord
-  validates :title, :distance, :exercise, :workout_time, :start_datetime, :polyline, :user, presence: true
+  validates :title, :distance, :exercise, :polyline, :user, presence: true
+  validates_numericality_of :workout_time, greater_than: 0
+  validate :not_in_future
   belongs_to :user
+
+  def not_in_future
+    errors.add(:start_datetime, "cannot be in future") unless DateTime.now >start_datetime
+  end
 
 end

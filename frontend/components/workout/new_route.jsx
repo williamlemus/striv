@@ -27,6 +27,7 @@ class NewRoute extends React.Component{
     }
 
     componentDidMount(){
+      this.props.clearErrors();
       navigator.geolocation.getCurrentPosition((position) => {
         this.position = position;
         this.initDrawing();
@@ -170,7 +171,12 @@ date = new Date().toLocaleString("en-gb");
 
       </div>);
     } else {
-      return(<div>
+      return(<div className='new-workout-container'>
+        <ul>
+          {
+            this.props.errors.map((err, idx) => <li className='error' key={idx}>{err}</li>)
+          }
+        </ul>
         <form className='new-workout-form' onChange={this.handleInput}>
           <label htmlFor='title'>Title</label>
           <input id='title' name="title" />
@@ -191,13 +197,17 @@ date = new Date().toLocaleString("en-gb");
             <input type='number' name="seconds" id='seconds' defaultValue='0' max='59'/>
             <label htmlFor='seconds'>ss</label>
           </fieldset>
-          <label htmlFor='date'>
-            Date
-          </label>
-          <input id='date' type='datetime-local' defaultValue={this.getCurrentDate()} name="start_datetime" />
-          <label htmlFor='description'>Description</label>
-          <textarea id='description' name='description'></textarea>
-          <input type='submit' onClick={this.handleSubmit} value='Create Workout'/>
+          <div className='workout-form-date'>
+            <label htmlFor='date'>
+              Date
+            </label>
+            <input id='date' type='datetime-local' defaultValue={this.getCurrentDate()} name="start_datetime" />
+          </div>
+          <div>
+            <label htmlFor='description'>Description</label>
+            <textarea id='description' name='description'></textarea>
+          </div>
+          <input type='submit' className='enabled' onClick={this.handleSubmit} value='Create Workout'/>
         </form>
       </div>);
     }

@@ -1,7 +1,7 @@
 import * as WorkoutAPI from '../../util/workout_api_util';
-
+import {RECEIVE_ERRORS, receiveErrors} from '../error_actions';
 export const RECEIVE_ALL_WORKOUTS = 'RECEIVE_ALL_WORKOUTS';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+
 export const RECEIVE_WORKOUT = 'RECEIVE_WORKOUT';
 
 export const receiveAllWorkouts = (workouts) => {
@@ -18,10 +18,6 @@ export const receiveWorkout = (workout) => {
   })
 };
 
-export const receiveErrors = (error) => {
-  type: RECEIVE_ERRORS,
-  error
-}
 
 
 export const newWorkout = (workout) => (dispatch) => {

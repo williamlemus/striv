@@ -4,3 +4,55 @@
 .workout-detail{
   width: 90%;
 }
+
+
+.new-workout-form{
+  background-color: rgba(255,255,255,.4);
+  padding: 10px;
+  font-size: 18px;
+  width: 70vw;
+  min-width: 810px;
+}
+
+.new-workout-form input {
+  height: 30px;
+  text-indent: 8px;
+}
+.new-workout-form textarea{
+  padding: 10px;
+  margin: 20px 10px 0 20px;
+  width: 760px;
+}
+
+.new-workout-form fieldset {
+  width: 290px;
+  height: 60px;
+  border: 1px solid lightgray;
+  display: inline-block;
+  margin: 10px 30px 5px 25px;
+}
+
+.new-workout-container {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#date {
+  width: 300px;
+}
+
+#exercise_type{
+  height: 30px;
+  margin-left: 10px;
+}
+
+.new-workout-form fieldset input {
+  width: 58px;
+  margin: 0 5px 0 5px;
+}
+
+.new-workout-date {
+  margin-bottom: 10px;
+}

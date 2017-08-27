@@ -22,11 +22,11 @@ class Greeting extends React.Component{
                 strīv
               </div>
               <span><Link to='/new-route'>&#x1F6B2; New Route [+]</Link></span>
-              <form>
-                <input type='submit' onClick={this.handleLogout} value='logout'></input>
-              </form>
+              <span>{this.props.currentUser.username}</span>
+
+                <span onClick={this.handleLogout} className='nav-bar-link'>Logout</span>
+
           </nav>
-          Hello, {this.props.currentUser.username}!
         </div>
       );
     } else {
