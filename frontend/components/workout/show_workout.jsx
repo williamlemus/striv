@@ -42,21 +42,43 @@ class ShowWorkout extends React.Component{
     if(this.props.workout){
       const workout = this.props.workout;
       return (
-        <section className='workout-detail'>
-          <h2>{workout.title}</h2>
-          <h3>
-            {workout.description}
-          </h3>
-          <ul>
-            <li>{workout.distance/1000}km</li>
-            {/* need function to make time into HH:MM:ss*/}
-            <li>{workout.workout_time/60}min</li>
-            <li>{workout.exercise}</li>
-            <li>{new Date(workout.start_datetime).toLocaleString()}</li>
-          </ul>
-          <div id='map-container' ref={ map => this.mapNode = map}>
+        <div>
+          <section className='workout-detail'>
+            <div className='workout-exercise'>
+              <h2>{workout.exercise}</h2>
+            </div>
+            <div className='workout-info'>
+              <div className='workout-title'>
+                <h5>{new Date(workout.start_datetime).toLocaleString()}</h5>
+                <h3>
+                  {workout.title}
+                </h3>
+                <h4>
+                  {workout.description}
+                </h4>
+              </div>
+              <div className='workout-stats'>
+                <ul>
+                  <li>{workout.distance/1000}km
+                    <span className='workout-stats-label'>
+                      Distance
+                    </span>
+                  </li>
+                  {/* need function to make time into HH:MM:ss*/}
+                  <li>{workout.workout_time/60} min
+                    <span className='workout-stats-label'>
+                      Time
+                    </span>
+
+                  </li>
+
+                </ul>
+              </div>
           </div>
-        </section>
+          </section>
+          <div id='map-container' className='workout-map' ref={ map => this.mapNode = map}>
+          </div>
+        </div>
       );
     } else {
       return(<div>No workout found!</div>);

@@ -19,8 +19,9 @@ class Greeting extends React.Component{
         <div>
           <nav className='nav_bar'>
               <div className='logo'>
-                strīv
+                <Link to='/'>strīv</Link>
               </div>
+              <span><Link to='/'>Feed</Link></span>
               <span><Link to='/new-route'>&#x1F6B2; New Route [+]</Link></span>
               <span>{this.props.currentUser.username}</span>
 

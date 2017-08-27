@@ -1,10 +1,6 @@
 // Place all the styles related to the api/workouts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.workout-detail{
-  width: 90%;
-}
-
 
 .new-workout-form{
   background-color: rgba(255,255,255,.4);
@@ -70,4 +66,101 @@
 
 .new-workout-date {
   margin-bottom: 10px;
+}
+
+
+.workout-detail .workout-map{
+  width: 90%;
+
+}
+
+.workout-detail {
+  border: 1px solid lightgrey;
+  margin-bottom: 30px;
+
+}
+
+.workout-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.workout-exercise {
+  background-color: #BDC2B9;
+  box-sizing: border-box;
+  margin: 0;
+  padding-right: 10px;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  width: inherit;
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+
+
+.workout-exercise h2 {
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  padding-left: 10px;
+}
+
+.workout-title {
+  padding-left: 10px;
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+}
+
+.workout-title h5 {
+  color: grey;
+  font-weight: 300;
+  height: 15px;
+  padding: 3px 0 3px 0;
+  margin: 0;
+  margin-top: 3px;
+  font-size: .83em;
+}
+
+.workout-title h3 {
+  height: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  padding-bottom: 6px;
+  margin: 0;
+}
+
+.workout-title h4 {
+  height: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  padding: 3px 0 5px 0;
+  margin: 0;
+  margin-top: 10px;
+  font-size: .87em;
+  margin-bottom: 10px;
+}
+
+.workout-stats {
+  padding-top: 5px;
+}
+
+.workout-stats ul {
+  display: flex;
+}
+
+.workout-stats li{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.workout-stats-label {
+  color: grey;
+  font-weight: 300;
+  font-size: 15px;
 }
