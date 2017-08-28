@@ -14,23 +14,25 @@ class App extends React.Component {
   render(){
     let background = this.props.currentUser ? 'page' : 'page login-background'
     return(
-      <div className={background}>
+        <div>
 
-        <GreetingContainer />
+          <GreetingContainer />
+          <div className={background}>
 
-        <AuthRoute path="/login" component={SessionFormContainer} />
-        <AuthRoute path="/signup" component={SessionFormContainer} />
-        <Switch>
-          {
-            //must define a default home(activity feed) before changing the / path
-          }
-          <ProtectedRoute path='/' exact component={WorkoutIndexContainer} />
-          <ProtectedRoute path='/users/:id' exact component={UserShowContainer} />
-          <ProtectedRoute path='/workouts/:id' exact component={ShowWorkoutContainer} />
-          <ProtectedRoute path='/workouts' exact component={WorkoutIndexContainer} />
-          <ProtectedRoute path='/new-route' exact component={NewRouteContainer} />
-        </Switch>
-      </div>
+            <AuthRoute path="/login" component={SessionFormContainer} />
+            <AuthRoute path="/signup" component={SessionFormContainer} />
+            <Switch>
+              {
+                //must define a default home(activity feed) before changing the / path
+              }
+              <ProtectedRoute path='/' exact component={WorkoutIndexContainer} />
+              <ProtectedRoute path='/users/:id' exact component={UserShowContainer} />
+              <ProtectedRoute path='/workouts/:id' exact component={ShowWorkoutContainer} />
+              <ProtectedRoute path='/workouts' exact component={WorkoutIndexContainer} />
+              <ProtectedRoute path='/new-route' exact component={NewRouteContainer} />
+            </Switch>
+          </div>
+        </div>
     );
   }
 }

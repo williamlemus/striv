@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 unless(User.find_by(username: 'guest'))
-    User.create!(username: 'guest', password: 'password')
+    User.create!(username: 'guest', password: 'password', first_name: 'Guest', last_name: 'User', location: 'New York, NY', weight: 80, bio: 'Just another weekend warrior')
 end

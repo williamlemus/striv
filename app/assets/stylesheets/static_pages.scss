@@ -41,29 +41,31 @@ h1 {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  width: 100vw;
+  height: auto;
   background-size: cover;
-  height: 100vh;
-  align-items: center;
+
   font-family: sans-serif, Arial, Helvetica;
-  overflow-x: hidden;
+
 }
 
 .login-background {
   background-image: image-url('background.JPG');
+  height: calc(100vh - 70px);
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .nav_bar{
-  width: 55vw;
-  min-width: 470px;
+  width: 100%;
+  min-width: 900px;
   box-sizing: border-box;
   display: flex;
-  background-color: #DFBD79;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
-  height: 60px;
-  padding: 0px 15px 5px 10px;
+  border-bottom: 1px solid grey;
+  background-color: whitesmoke;
+  height: 70px;
+  font-family: sans-serif, Arial, Helvetica;
 }
 
 
@@ -75,13 +77,14 @@ h1 {
 
 .session_dialog{
   padding: 20px;
-  margin-top: 20px;
+  margin-top: 90px;
   border-radius: 5px;
   border: 1px solid darkgrey;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
+  align-self: center;
   background-color: rgba(0,0,0,.65);
   color: lightgrey;
   width: 400px;
@@ -113,23 +116,24 @@ h1 {
 }
 
 a:hover{
-  color: whitesmoke;
+  color: #B82C00;
 
 }
 
 .nav-bar-link:hover{
   color: lightgrey;
   border-color: whitesmoke;
-  background-color: #B58F44;
+  background-color: #882607;
   cursor: pointer;
 }
 
 .nav-bar-link {
   padding: 10px;
   border: 1px darkgrey solid;
-  border-radius: 2px;
+  border-radius: 5px;
   margin: 0 2px 0 2px;
   transition: all .8s;
+  background-color: #B82C00;
 }
 
 input {
@@ -166,5 +170,9 @@ input[type=text], input[type=password]{
   width: 35px;
   height: 35px;
   border-radius: 50%;
+}
+
+.nav-bar-login{
+  padding: 0 20px 0 20px;
 }
 /** Greetings **/

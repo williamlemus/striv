@@ -15,7 +15,7 @@ class Greeting extends React.Component{
   render(){
     if(this.props.currentUser){
       return(
-        <div>
+
           <nav className='nav_bar'>
               <span className='logo'>
                 <Link to='/'>strīv</Link>
@@ -38,12 +38,11 @@ class Greeting extends React.Component{
                   </span>
                 </div>
           </nav>
-        </div>
+
       );
     } else {
       return(
-        <div>
-          <nav className='nav_bar'>
+          <nav className='nav_bar nav-bar-login'>
 
               <div className='logo'>
                 strīv
@@ -55,7 +54,6 @@ class Greeting extends React.Component{
                 <Link to='/login' className='nav-bar-link'>Login</Link>
               </div>
           </nav>
-        </div>
       );
     }
 
