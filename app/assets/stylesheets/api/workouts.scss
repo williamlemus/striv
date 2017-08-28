@@ -30,9 +30,9 @@
 
 .new-workout-container {
   display: flex;
-  width: 70%;
   flex-direction: column;
   align-items: inherit;
+  padding-top: 50px;
 }
 
 #date {

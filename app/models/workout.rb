@@ -20,6 +20,7 @@ class Workout < ApplicationRecord
   validates_numericality_of :workout_time, greater_than: 0
   validate :not_in_future
   belongs_to :user
+  belongs_to :route
 
   def not_in_future
     errors.add(:start_datetime, "cannot be in future") unless DateTime.now >start_datetime

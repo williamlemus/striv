@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828000127) do
+ActiveRecord::Schema.define(version: 20170828193849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "routes", force: :cascade do |t|
+    t.text "polyline", null: false
+    t.integer "user_id", null: false
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_routes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
@@ -43,11 +52,11 @@ ActiveRecord::Schema.define(version: 20170828000127) do
     t.string "exercise", null: false
     t.integer "workout_time", null: false
     t.datetime "start_datetime", null: false
-    t.text "polyline", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "route_id", null: false
     t.index ["title"], name: "index_workouts_on_title"
   end
 

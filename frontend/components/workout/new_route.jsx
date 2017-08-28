@@ -157,6 +157,17 @@ date = new Date().toLocaleString("en-gb");
      this.setState(newVal);
    }
 
+   errors(){
+     if(this.props.errors.length > 0){
+       return(
+         <ul>
+           {this.props.errors.map((err, idx) => <li className='error' key={idx}>{err}</li>)}
+         </ul>
+       );
+     } else {
+       return '';
+     }
+   }
 
   render() {
     let activeButtonStatus = this.toggleCreateButton();
@@ -172,11 +183,7 @@ date = new Date().toLocaleString("en-gb");
       </div>);
     } else {
       return(<div className='new-workout-container'>
-        <ul>
-          {
-            this.props.errors.map((err, idx) => <li className='error' key={idx}>{err}</li>)
-          }
-        </ul>
+        {this.errors()}
         <form className='new-workout-form' onChange={this.handleInput}>
           <label htmlFor='title'>Title</label>
           <input id='title' name="title" />
