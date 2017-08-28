@@ -26,7 +26,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :workouts, dependent: :destroy
-
+  has_many :routes, dependent: :destroy
   has_attached_file :image, default_url: 'default_profile_picture.png'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import NewRoute from './new_route';
-import { newWorkout } from '../../actions/workouts/workout_actions';
+import { newRoute } from '../../actions/routes/route_actions';
 import {receiveErrors} from '../../actions/error_actions';
 
 
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => ({
 
 
 const mapDispatchToProps = (dispatch) => ({
-  newWorkout: (workout) => dispatch(newWorkout({workout: workout})),
+  newRoute: (route) => dispatch(newRoute({route: route})),
   clearErrors: () => dispatch(receiveErrors([]))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewRoute)

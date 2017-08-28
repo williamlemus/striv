@@ -10,19 +10,11 @@ class NewRoute extends React.Component{
       this.toggleCreateButton = this.toggleCreateButton.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleInput = this.handleInput.bind(this);
-      const defaultDate = this.getCurrentDate();
       this.state= {
         activeCreateButton: false,
         polyline: '',
         distance: {},
         step: 1,
-        title: '',
-        exercise: 'ride',
-        hours: '',
-        minutes: '',
-        seconds: '',
-        start_datetime: defaultDate,
-        description: '',
       }
     }
 
@@ -127,25 +119,19 @@ class NewRoute extends React.Component{
   }
 
 
-  getCurrentDate() {
-    let date =
-date = new Date().toLocaleString("en-gb");
-    let formattedDate = date.slice(6,10) + '-' + date.slice(3,5) + '-' + date.slice(0,2) + 'T' + date.slice(12,17);
-    return formattedDate;
-   }
-
 
    handleSubmit(e){
      e.preventDefault();
-     let workoutDetails = Object.assign({}, this.state);
-     delete workoutDetails.activeCreateButton;
-     delete workoutDetails.step;
-     workoutDetails.user_id = this.props.currentUser.id;
-     workoutDetails.distance = workoutDetails.distance.value;
+     let routeDetails = Object.assign({}, this.state);
+     delete routeDetails.activeCreateButton;
+     delete routeDetails.step;
+     routeDetails.user_id = this.props.currentUser.id;
+     routeDetails.distance = routeDetails.distance.value;
      //dispatch time!
-     workoutDetails.start_datetime = new Date(workoutDetails.start_datetime).toISOString();
-     this.props.newWorkout(workoutDetails).then((res) =>{
-       this.props.history.push(`/workouts/${res.workout.id}`);
+
+     //needs to be newRoute not workout and go to route page i guess?
+     this.props.newRoute(routeDetails).then((res) =>{
+       this.props.history.push(`/routes/${res.route.id}`);
      });
 
    }
@@ -187,34 +173,7 @@ date = new Date().toLocaleString("en-gb");
         <form className='new-workout-form' onChange={this.handleInput}>
           <label htmlFor='title'>Title</label>
           <input id='title' name="title" />
-          <label htmlFor='exercise_type'>Exercise</label>
-          <select id='exercise_type' name="exercise" defaultValue='ride'>
-            <option value='ride'>Ride</option>
-            <option value='run'>Run</option>
-          </select>
-
-          <fieldset>
-            <legend>
-              Duration
-            </legend>
-            <input type='number' name="hours" id='hours' defaultValue='0' max='999' />
-            <label htmlFor='hours'>HH</label>
-            <input type='number' name="minutes" id='min' defaultValue='0' max='59' />
-            <label htmlFor='min'>MM</label>
-            <input type='number' name="seconds" id='seconds' defaultValue='0' max='59'/>
-            <label htmlFor='seconds'>ss</label>
-          </fieldset>
-          <div className='workout-form-date'>
-            <label htmlFor='date'>
-              Date
-            </label>
-            <input id='date' type='datetime-local' defaultValue={this.getCurrentDate()} name="start_datetime" />
-          </div>
-          <div>
-            <label htmlFor='description'>Description</label>
-            <textarea id='description' name='description'></textarea>
-          </div>
-          <input type='submit' className='enabled' onClick={this.handleSubmit} value='Create Workout'/>
+          <input type='submit' className='enabled' onClick={this.handleSubmit} value='Create Route'/>
         </form>
       </div>);
     }

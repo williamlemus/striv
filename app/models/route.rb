@@ -11,7 +11,7 @@
 #
 
 class Route < ApplicationRecord
-  validates :polyline, :user, :title, presence: true
+  validates :polyline, :user, :title, :distance, presence: true
   belongs_to :user
   has_many :workouts
 end

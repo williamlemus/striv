@@ -18,7 +18,6 @@ export const receiveWorkout = (workout) => {
   })
 };
 
-//TODO: make selector
 export const fetchAllWorkouts = () => (dispatch) => {
   return WorkoutAPI.getAllWorkouts()
     .then((workouts) => dispatch(receiveAllWorkouts(workouts)),
