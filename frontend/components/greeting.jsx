@@ -17,12 +17,15 @@ class Greeting extends React.Component{
       return(
         <div>
           <nav className='nav_bar'>
-              <div className='logo'>
+              <span className='logo'>
                 <Link to='/'>strīv</Link>
-              </div>
-              <span><Link to='/'>Feed</Link></span>
+              </span>
+              <span>
+                <Link to='/'>
+                  Feed
+                </Link>
+              </span>
               <div>
-
                 <span><Link to='/new-route'>&#x1F6B2; New Route [+]</Link></span>
                 <span>{this.props.currentUser.username}</span>
                 <span>

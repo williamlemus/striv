@@ -10,6 +10,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
+    #need to add workouts to this
     @user = User.find_by(id: params[:id])
     if @user
       render :show

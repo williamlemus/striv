@@ -1,4 +1,4 @@
-import {RECEIVE_WORKOUT, RECEIVE_ALL_WORKOUTS} from '../../../actions/workouts/workout_actions';
+import { RECEIVE_WORKOUT, RECEIVE_ALL_WORKOUTS } from '../../../actions/workouts/workout_actions';
 
 export const WorkoutsReducer = (state = {}, action) => {
   let newState;
