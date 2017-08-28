@@ -23,11 +23,18 @@ class UserShow extends React.Component {
                 {this.props.user.first_name + ' ' + this.props.user.last_name}
               </li>
               <li>
-                {this.props.user.location}
+                <i className="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  {this.props.user.location}
+                </span>
               </li>
               { this.props.currentUser.id === this.props.user.id ?
                 <li>
-                  {this.props.user.weight}
+                  Weight:
+                  <span>
+                    {this.props.user.weight}
+                  </span>
+                  kg
                 </li>
                 : ''
               }
