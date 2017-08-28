@@ -13,7 +13,6 @@ class Greeting extends React.Component{
   }
 
   render(){
-
     if(this.props.currentUser){
       return(
         <div>
@@ -22,11 +21,19 @@ class Greeting extends React.Component{
                 <Link to='/'>strīv</Link>
               </div>
               <span><Link to='/'>Feed</Link></span>
-              <span><Link to='/new-route'>&#x1F6B2; New Route [+]</Link></span>
-              <span>{this.props.currentUser.username}</span>
+              <div>
 
-                <span onClick={this.handleLogout} className='nav-bar-link'>Logout</span>
-
+                <span><Link to='/new-route'>&#x1F6B2; New Route [+]</Link></span>
+                <span>{this.props.currentUser.username}</span>
+                <span>
+                  <Link to={'/users/' + this.props.currentUser.id}>
+                    <img className='profile-pic' src={this.props.currentUser.image_url} />
+                  </Link>
+                </span>
+                  <span onClick={this.handleLogout} className='nav-bar-link'>
+                    Logout
+                  </span>
+                </div>
           </nav>
         </div>
       );

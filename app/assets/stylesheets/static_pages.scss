@@ -54,12 +54,14 @@ h1 {
 
 .nav_bar{
   width: 55vw;
+  min-width: 470px;
   box-sizing: border-box;
   display: flex;
   background-color: #DFBD79;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
+  height: 60px;
   padding: 0px 15px 5px 10px;
 }
 
@@ -159,4 +161,9 @@ input[type=text], input[type=password]{
   color: whitesmoke;
 }
 
+.profile-pic{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
 /** Greetings **/
