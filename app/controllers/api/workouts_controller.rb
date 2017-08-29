@@ -8,7 +8,6 @@ class Api::WorkoutsController < ApplicationController
   def create
     @workout = Workout.includes(:user, :route).new(workout_params)
     if @workout.save
-      debugger
       render :show
     else
       render json: @workout.errors.full_messages, status: 422
