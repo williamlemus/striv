@@ -39,33 +39,39 @@ class ShowRoute extends React.Component{
 
 
   render(){
-    debugger
     if(this.props.route){
       const route = this.props.route;
+      const user = this.props.users[route.user_id]
       return (
         <div>
           <section className='route-detail'>
 
+            <h2>
+              {route.title}
+            </h2>
             <div className='route-info'>
               <div className='route-title'>
 
-                <h3>
-                  {route.title}
-                </h3>
+              </div>
+              <div id='map-container' className='route-map' ref={ map => this.mapNode = map}>
               </div>
               <div className='route-stats'>
-                <ul>
-                  <li>{route.distance/1000}km
-                    <span className='route-stats-label'>
-                      Distance
-                    </span>
-                  </li>
-                </ul>
+                <img className='route-user-img' src={user.image_url}/>
+                  <div>
+                    <div className='route-user-name'>{user.first_name + ' ' + user.last_name}</div>
+                    <div className='route-create-date'>Created on {' ' +  new Date(route.created_at).toDateString()} </div>
+                    <ul>
+                      <li>{route.distance/1000}km
+                        <span className='workout-stats-label'>
+                          Distance
+                        </span>
+                      </li>
+                    </ul>
+                </div>
               </div>
           </div>
           </section>
-          <div id='map-container' className='route-map' ref={ map => this.mapNode = map}>
-          </div>
+
         </div>
       );
     } else {

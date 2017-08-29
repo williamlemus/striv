@@ -8,11 +8,11 @@
 #  exercise       :string           not null
 #  workout_time   :integer          not null
 #  start_datetime :datetime         not null
-#  polyline       :text             not null
 #  description    :text
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  user_id        :integer
+#  route_id       :integer          not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

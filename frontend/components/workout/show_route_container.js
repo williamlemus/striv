@@ -4,7 +4,8 @@ import {getRoute} from '../../actions/routes/route_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return({
-    route: state.entities.routes[ownProps.match.params.id]
+    route: state.entities.routes[ownProps.match.params.id],
+    users: state.entities.users
   })
 };
 

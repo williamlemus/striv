@@ -21,7 +21,8 @@ export const deleteRoute = (routeid) => {
   });
 };
 
-export const getAllRoutes = () => {
+//user can only get own routes
+export const getRoutes = () => {
   return $.ajax({
     method: 'GET',
     url: 'api/routes'

@@ -17,16 +17,17 @@ class Greeting extends React.Component{
       return(
 
           <nav className='nav_bar'>
+            <div>
               <span className='logo'>
                 <Link to='/'>strīv</Link>
               </span>
-              <span>
+              <span className='header-links'>
                 <Link to='/'>
-                  Feed
+                  Dashboard
                 </Link>
               </span>
+            </div>
               <div>
-                <span><Link to='/new-route'>&#x1F6B2; New Route [+]</Link></span>
                 <span>{this.props.currentUser.username}</span>
                 <span>
                   <Link to={'/users/' + this.props.currentUser.id}>
@@ -36,6 +37,7 @@ class Greeting extends React.Component{
                   <span onClick={this.handleLogout} className='nav-bar-link'>
                     Logout
                   </span>
+                  <span className='add-route'><Link to='/new-route'>+</Link></span>
                 </div>
           </nav>
 

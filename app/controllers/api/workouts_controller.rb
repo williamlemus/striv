@@ -1,7 +1,7 @@
 class Api::WorkoutsController < ApplicationController
 
   def index
-    @workouts = Workout.all
+    @workouts = Workout.all.includes(:user, :route)
     render :index
   end
 
@@ -40,9 +40,9 @@ class Api::WorkoutsController < ApplicationController
   private
 
   def workout_params
-    base_params = params.require(:workout).permit(:title, :distance, :exercise, :start_datetime, :polyline, :description, :user_id, :hours, :minutes, :seconds)
+    base_params = params.require(:workout).permit(:title, :exercise, :start_datetime, :description, :user_id, :hours, :minutes, :seconds, :route_id)
     base_params[:workout_time] = time_in_seconds(base_params[:hours], base_params[:minutes], base_params[:seconds])
-    base_params.permit(:title, :distance, :exercise, :start_datetime, :polyline, :description, :user_id, :workout_time)
+    base_params.permit(:title, :exercise, :start_datetime, :description, :user_id, :workout_time, :route_id)
   end
 
 

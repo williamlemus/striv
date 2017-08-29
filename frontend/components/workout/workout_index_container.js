@@ -5,7 +5,9 @@ import {fetchAllWorkouts} from '../../actions/workouts/workout_actions';
 
 const mapStateToProps = state => {
   return({
-    workouts: allWorkouts(state)
+    workouts: allWorkouts(state),
+    users: state.entities.users,
+    routes: state.entities.routes
   });
 };
 

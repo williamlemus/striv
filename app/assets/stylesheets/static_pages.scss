@@ -30,7 +30,7 @@ body{
   height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 h1 {
@@ -63,16 +63,24 @@ h1 {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid grey;
-  background-color: whitesmoke;
-  height: 70px;
+  height: 55px;
   font-family: sans-serif, Arial, Helvetica;
 }
 
+.nav_bar div {
+  align-self: center;
+}
+
+.header-links {
+  vertical-align: middle;
+}
 
 .logo{
   font-family: 'Exo', sans-serif;
   font-weight: bold;
   font-size: 25pt;
+  color: #FC4C02;
+  padding-right: 30px;
 }
 
 .session_dialog{
@@ -116,24 +124,25 @@ h1 {
 }
 
 a:hover{
-  color: #B82C00;
+  color: #e34402;
 
 }
 
 .nav-bar-link:hover{
   color: lightgrey;
-  border-color: whitesmoke;
-  background-color: #882607;
+  background-color: #e34402;
   cursor: pointer;
 }
 
 .nav-bar-link {
-  padding: 10px;
-  border: 1px darkgrey solid;
-  border-radius: 5px;
+  border-radius: 2px;
   margin: 0 2px 0 2px;
   transition: all .8s;
-  background-color: #B82C00;
+  background-color: #FC4C02;
+  font-size: 12px;
+  min-height: 30px;
+  padding: 8px 15px;
+  color: white;
 }
 
 input {
@@ -167,12 +176,34 @@ input[type=text], input[type=password]{
 }
 
 .profile-pic{
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
+  vertical-align: middle;
 }
 
 .nav-bar-login{
   padding: 0 20px 0 20px;
 }
+
+.add-route{
+  border: 2px solid #FC4C02;
+  color: #FC4C02;
+  padding: 3px;
+  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  vertical-align: text-top;
+}
+
+.add-route:hover{
+  background-color: #FC4C02;
+  color: white;
+  cursor: pointer;
+}
+
+.add-route a:hover{
+  color: white;
+}
+
 /** Greetings **/

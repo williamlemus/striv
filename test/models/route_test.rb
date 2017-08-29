@@ -8,6 +8,7 @@
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  distance   :float            not null
 #
 
 require 'test_helper'

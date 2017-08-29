@@ -1,5 +1,10 @@
 class Api::RoutesController < ApplicationController
 
+  def index
+    @routes = Route.includes(:user).where(user_id: current_user.id)
+    render :index
+  end
+
   def create
     @route = Route.new(route_params)
     @route.user_id = current_user.id
@@ -11,7 +16,7 @@ class Api::RoutesController < ApplicationController
   end
 
   def show
-    @route = Route.find_by(id: params[:id])
+    @route = Route.includes(:user).find_by(id: params[:id])
     if @route
       render :show
     else

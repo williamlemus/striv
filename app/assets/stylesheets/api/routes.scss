@@ -1,3 +1,79 @@
 // Place all the styles related to the api/routes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#map-container{
+  width: 800px;
+  height: 50vh;
+}
+
+#create-route-button {
+  border-style: outset;
+  transition: all 1s;
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 7px;
+  color: white;
+  height: 40px;
+  margin: 15px;
+  min-height: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disabled, .disabled:hover{
+  cursor: not-allowed;
+  background-color: #6BA288;
+}
+
+.enabled {
+  cursor: pointer;
+  background-color: #286C4B;
+}
+
+.enabled:hover{
+  background-color: #145636;
+  cursor: pointer;
+}
+
+.route-info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.route-detail {
+  min-width: 1100px;
+}
+
+.route-user-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.route-stats {
+  display: flex;
+}
+
+
+.route-stats li{
+  display: flex;
+  flex-direction: column;
+  padding-right: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.route-stats-label {
+  color: grey;
+  font-weight: 300;
+  font-size: 12px;
+}
+.route-create-date{
+  color: grey;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+}
