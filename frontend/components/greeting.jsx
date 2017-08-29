@@ -26,6 +26,11 @@ class Greeting extends React.Component{
                   Dashboard
                 </Link>
               </span>
+              <span className='header-links'>
+                <Link to='/new-workout'>
+                  New Workout
+                </Link>
+              </span>
             </div>
               <div>
                 <span>{this.props.currentUser.username}</span>

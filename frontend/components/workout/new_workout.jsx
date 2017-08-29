@@ -8,6 +8,7 @@ class NewWorkout extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     const defaultDate = this.getCurrentDate();
     this.state= {
+        loaded_data: false,
         title: '',
         exercise: 'ride',
         hours: '',
@@ -40,7 +41,7 @@ class NewWorkout extends React.Component {
     //dispatch time!
     this.props.clearErrors();
     this.props.newWorkout(workoutDetails).then((res) =>{
-      this.props.history.push(`/wokrouts/${res.workout.id}`);
+      this.props.history.push(`/workouts/${res.workout.workout.id}`);
     });
 
   }
@@ -60,13 +61,15 @@ class NewWorkout extends React.Component {
 
    componentDidMount(){
      //get all routes that user owns
-     this.props.getRoutes();
+     this.props.getRoutes()
+      .then(this.setState({loaded_data: true}));
+
    }
 
 
   render(){
     // add above form when working{this.errors()}
-    if( !(Object.keys(this.props.routes).length === 0 && this.props.routes.constructor === Object)){
+    if(this.state.loaded_data){
       return(
         <div className='new-workout-container'>
           <form className='new-workout-form' onChange={this.handleInput}>
@@ -115,7 +118,7 @@ class NewWorkout extends React.Component {
         </div>
       );
     } else {
-      return null;
+      return (<div></div>);
     }
   }
 }
