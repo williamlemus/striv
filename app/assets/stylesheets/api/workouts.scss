@@ -71,13 +71,13 @@
 
 .workout-detail .workout-map{
   width: 90%;
-
+  margin-top: 100px;
 }
 
 .workout-detail {
   border: 1px solid lightgrey;
   margin-bottom: 30px;
-
+  margin-top: 100px;
 }
 
 .workout-info {
@@ -171,7 +171,7 @@
   width: 50%;
 }
 
-.workout-index div {
+.workout-feed {
   padding: 30px 0 30px 0;
 }
 
@@ -179,9 +179,35 @@
   padding: 10px 0 10px 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 800;
+  font-size: 14px;
+}
+
+.workout-index-distance {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
 }
 
 .workout-index-title a:hover{
-  color: #0D1F30;
+  color: #007fb6;
   text-decoration: underline;
+}
+
+.workout-feed-item {
+  height: 200px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.workout-feed-img{
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+
+}
+
+.workout-pic-container{
+  min-height: 250px;
+
 }

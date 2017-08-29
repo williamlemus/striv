@@ -4,7 +4,9 @@ import {getWorkout} from '../../actions/workouts/workout_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return({
-    workout: state.entities.workouts[ownProps.match.params.id]
+    workout: state.entities.workouts[ownProps.match.params.id],
+    users: state.entities.users,
+    routes: state.entities.routes
   })
 };
 

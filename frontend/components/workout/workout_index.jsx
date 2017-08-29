@@ -9,15 +9,16 @@ class WorkoutIndex extends React.Component {
   }
 
   render(){
-    let addWorkoutsMessage = this.props.workouts.length === 1 ? <h2>Add some <Link to='new-workout'>workouts</Link></h2> : '';
 
+    if(this.props.workouts.length <= 1){
+      return( <h2>Add some <Link to='new-workout'>workouts</Link></h2>);
+    } else {
 
-    return(
+      return(
 
         <div className='workout-index'>
           <h1>Activity Feed</h1>
-          <div>
-            {addWorkoutsMessage}
+          <div className='workout-feed'>
             {
               this.props.workouts.map((workout, idx) => {
                 return(
@@ -26,8 +27,9 @@ class WorkoutIndex extends React.Component {
               })
             }
           </div>
-      </div>
+        </div>
       );
+    }
   }
 }
 

@@ -9,19 +9,24 @@ const WorkoutIndexItem = (props) => {
   if(props.workout instanceof Array){
     return null;
   } else {
-    return(<div>
-      <div>{user.first_name + ' ' + user.last_name}</div>
+    return(
+      <div className='workout-feed-item'>
+        <div className='workout-pic-container'>
+          <img className='workout-feed-img' src={user.image_url} />
+
+        </div>
+        <span>{user.first_name + ' ' + user.last_name}</span>
       <span className='workout-date'>
         {new Date(props.workout.start_datetime).toLocaleString()}
       </span>
-      <ul>
-        <li className='workout-index-title'>
+
+        <span className='workout-index-title'>
           <Link to={'/workouts/' + props.workout.id}>{props.workout.title}</Link>
-        </li>
-        <li>
+        </span>
+        <span className='workout-index-distance'>
           {route.distance/1000}km
-        </li>
-      </ul>
+        </span>
+
       <br/>
     </div>);
   }

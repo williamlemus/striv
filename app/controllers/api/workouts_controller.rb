@@ -6,8 +6,9 @@ class Api::WorkoutsController < ApplicationController
   end
 
   def create
-    @workout = Workout.new(workout_params)
+    @workout = Workout.includes(:user, :route).new(workout_params)
     if @workout.save
+      debugger
       render :show
     else
       render json: @workout.errors.full_messages, status: 422
@@ -15,7 +16,7 @@ class Api::WorkoutsController < ApplicationController
   end
 
   def show
-    @workout = Workout.find_by(id: params[:id])
+    @workout = Workout.includes(:user, :route).find_by(id: params[:id])
     if @workout
       render :show
     else

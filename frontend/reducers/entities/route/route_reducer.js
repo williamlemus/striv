@@ -10,8 +10,8 @@ export const RoutesReducer = (state = {}, action) => {
     case RECEIVE_ROUTES:
       return action.routes;
     case RECEIVE_WORKOUT:
-    newState = Object.assign({}, state, {[action.workout.route.id]: action.route});
-    return newState;
+      newState = Object.assign({}, state, {[action.workout.workout.route_id]: action.workout.route});
+      return newState;
     case RECEIVE_ALL_WORKOUTS:
       return action.workouts.routes;
     default:

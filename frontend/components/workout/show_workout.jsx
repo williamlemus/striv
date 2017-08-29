@@ -1,4 +1,5 @@
 import React from 'react';
+import {secondsToTime} from '../../util/converters'
 
 class ShowWorkout extends React.Component{
 
@@ -21,13 +22,14 @@ class ShowWorkout extends React.Component{
   }
 
   initDrawing(){
+    let route = this.props.routes[this.props.workout.route_id];
     let workoutPolyline = new google.maps.Polyline({
-      path: google.maps.geometry.encoding.decodePath(this.props.workout.polyline),
+      path: google.maps.geometry.encoding.decodePath(route.polyline),
     });
-    let middle = Math.floor(workoutPolyline.latLngs.b[0].length /2);
-    let middlePoint =  workoutPolyline.latLngs.b[0].b[middle].toJSON();
+    let bounds = new google.maps.LatLngBounds();
+    workoutPolyline.getPath().forEach((l) => bounds.extend(l));
+
     const mapOptions = {
-      center: middlePoint,
       zoom: 13,
       disableDefaultUI: true,
       zoomControl: true
@@ -35,12 +37,14 @@ class ShowWorkout extends React.Component{
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     workoutPolyline.setMap(this.map);
+    this.map.fitBounds(bounds);
   }
 
 
   render(){
     if(this.props.workout){
       const workout = this.props.workout;
+      const route = this.props.routes[workout.route_id];
       return (
         <div>
           <section className='workout-detail'>
@@ -59,13 +63,13 @@ class ShowWorkout extends React.Component{
               </div>
               <div className='workout-stats'>
                 <ul>
-                  <li>{workout.distance/1000}km
+                  <li>{route.distance/1000}km
                     <span className='workout-stats-label'>
                       Distance
                     </span>
                   </li>
                   {/* need function to make time into HH:MM:ss*/}
-                  <li>{workout.workout_time/60}min
+                  <li>{secondsToTime(workout.workout_time)}
                     <span className='workout-stats-label'>
                       Time
                     </span>
