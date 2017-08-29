@@ -46,7 +46,9 @@ class ShowWorkout extends React.Component{
       const workout = this.props.workout;
       const route = this.props.routes[workout.route_id];
       return (
-        <div>
+        <div className='workout-container'>
+
+          {this.props.currentUser.id === this.props.workout.user_id ? <span className='workout-edit'><i className="fa fa-pencil" aria-hidden="true"></i></span> : ''}
           <section className='workout-detail'>
             <div className='workout-exercise'>
               <h2>{workout.exercise}</h2>

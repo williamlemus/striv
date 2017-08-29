@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return({
     workout: state.entities.workouts[ownProps.match.params.id],
     users: state.entities.users,
-    routes: state.entities.routes
+    routes: state.entities.routes,
+    currentUser: state.session.currentUser
   })
 };
 
