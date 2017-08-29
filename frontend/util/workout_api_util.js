@@ -28,4 +28,11 @@ export const getAllWorkouts = () => {
   });
 };
 
+
+export const getUserWorkouts = (user_id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/users/${user_id}/workouts`
+  });
+};
 //TODO: update workouts

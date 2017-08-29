@@ -9,7 +9,11 @@ class WorkoutIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.getAllWorkouts().then(() => this.setState({loaded_data: true}));
+    if(this.props.user_id){
+      this.props.getWorkouts(this.props.user_id).then(() => this.setState({loaded_data: true}));
+    } else {
+      this.props.getAllWorkouts().then(() => this.setState({loaded_data: true}));
+    }
   }
 
   render(){

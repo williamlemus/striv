@@ -1,4 +1,5 @@
 import React from 'react';
+import WorkoutIndexContainer from '../workout/workout_index_container';
 
 class UserShow extends React.Component {
 
@@ -43,6 +44,7 @@ class UserShow extends React.Component {
               </li>
             </ul>
           </section>
+          <WorkoutIndexContainer user_id={this.props.user.id} />
         </div>);
     } else {
       return(<div></div>);

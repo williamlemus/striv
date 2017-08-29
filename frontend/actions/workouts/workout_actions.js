@@ -18,6 +18,11 @@ export const receiveWorkout = (workout) => {
   })
 };
 
+export const fetchUserWorkouts = userid => dispatch => {
+  return WorkoutAPI.getUserWorkouts(userid)
+    .then(workouts => dispatch(receiveAllWorkouts(workouts)), errors => dispatch(errors.responseJSON));
+};
+
 export const fetchAllWorkouts = () => (dispatch) => {
   return WorkoutAPI.getAllWorkouts()
     .then((workouts) => dispatch(receiveAllWorkouts(workouts)),
