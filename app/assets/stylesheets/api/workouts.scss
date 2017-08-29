@@ -109,6 +109,10 @@
   align-items: center;
 }
 
+.workout-exercise h2:first-letter{
+  text-transform: capitalize;
+}
+
 
 .workout-exercise h2 {
   font-weight: 300;
