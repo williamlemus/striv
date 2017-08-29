@@ -3,14 +3,19 @@ import WorkoutIndexItem from './workout_index_item';
 import {Link} from 'react-router-dom'
 
 class WorkoutIndex extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {loaded_data: false};
+  }
 
   componentDidMount(){
-    this.props.getAllWorkouts();
+    this.props.getAllWorkouts().then(() => this.setState({loaded_data: true}));
   }
 
   render(){
-
-    if(this.props.workouts.length <= 1){
+    if( !this.state.loaded_data){
+      return null;
+    } else if(this.props.workouts.length === 1){
       return( <h2>Add some <Link to='new-workout'>workouts</Link></h2>);
     } else {
 
