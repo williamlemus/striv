@@ -68,7 +68,6 @@ class ShowWorkout extends React.Component{
                       Distance
                     </span>
                   </li>
-                  {/* need function to make time into HH:MM:ss*/}
                   <li>{secondsToTime(workout.workout_time)}
                     <span className='workout-stats-label'>
                       Time

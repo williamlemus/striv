@@ -68,6 +68,17 @@
   margin-bottom: 10px;
 }
 
+.new-workout-route-selector{
+  display: flex;
+  width: 290px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-workout-route-selector select{
+  width: 140px;
+  height: 30px;
+}
 
 .workout-detail .workout-map{
   width: 90%;

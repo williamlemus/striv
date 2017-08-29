@@ -61,17 +61,19 @@ class NewWorkout extends React.Component {
 
    componentDidMount(){
      //get all routes that user owns
+    //  debugger
      this.props.getRoutes()
-      .then(this.setState({loaded_data: true}));
-
+      .then(() =>{
+        this.setState({loaded_data: true})
+      });
    }
 
 
   render(){
-    // add above form when working{this.errors()}
     if(this.state.loaded_data){
       return(
         <div className='new-workout-container'>
+          {this.errors()}
           <form className='new-workout-form' onChange={this.handleInput}>
             <label htmlFor='title'>Title</label>
             <input id='title' name="title" />
@@ -98,7 +100,7 @@ class NewWorkout extends React.Component {
               </label>
               <input id='date' type='datetime-local' defaultValue={this.getCurrentDate()} name="start_datetime" />
             </div>
-            <div>
+            <div className='new-workout-route-selector'>
               <label htmlFor='route_id'>Route</label>
               <select id='route_id' name='route_id' defaultValue='default'>
                 <option value='default' key='-1' disabled>Select a Route</option>

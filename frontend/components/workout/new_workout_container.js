@@ -13,7 +13,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => {
     return ({
       newWorkout: (workout) => dispatch(newWorkout({workout: workout})),
-      getRoutes: userid => dispatch(getRoutes(userid)),
+      getRoutes: () => dispatch(getRoutes()),
       clearErrors: () => dispatch(receiveErrors([]))
     });
 };
