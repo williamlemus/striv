@@ -158,14 +158,28 @@ class NewRoute extends React.Component{
   render() {
     let activeButtonStatus = this.toggleCreateButton();
     if(this.state.step === 1) {
-      return(<div>
+      return(<div className='new-route-container'>
 
         <div id='create-route-button' className={activeButtonStatus} onClick={this.createRoute}>
           Create Route
         </div>
         <div id='map-container' ref={ map => this.mapNode = map}>
         </div>
-
+        <div className='new-route-instructions'>
+          <h3>Instructions:</h3>
+          <ul>
+            <li>
+              Click on the map to set a starting point.
+            </li>
+            <li>
+              Click again to set an ending point. You should now be able to create the route!
+            </li>
+            <li>
+              If you want to add more points you can continue clicking on map.
+              Each new click continue making a new route with the last clicked point as the end
+            </li>
+          </ul>
+        </div>
       </div>);
     } else {
       return(<div className='new-workout-container'>

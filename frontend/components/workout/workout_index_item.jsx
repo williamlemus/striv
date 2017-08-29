@@ -12,10 +12,15 @@ const WorkoutIndexItem = (props) => {
     return(
       <div className='workout-feed-item'>
         <div className='workout-pic-container'>
-          <img className='workout-feed-img' src={user.image_url} />
-
+          <Link to={'/users/' + user.id}>
+            <img className='workout-feed-img' src={user.image_url} />
+          </Link>
         </div>
-        <span>{user.first_name + ' ' + user.last_name}</span>
+        <span>
+          <Link to={'/users/' + user.id}>
+            {user.first_name + ' ' + user.last_name}
+          </Link>
+        </span>
       <span className='workout-date'>
         {new Date(props.workout.start_datetime).toLocaleString()}
       </span>

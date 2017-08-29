@@ -1,20 +1,43 @@
 // Place all the styles related to the api/routes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-route-container{
+  display: flex;
+  flex-direction: column;
+  height: 590px;
+  flex-wrap: wrap;
+  align-content: space-between;
+  width: 1000px;
+}
+
+.new-route-instructions{
+  height: 550px;
+}
+
+.new-route-instructions ul {
+    width: 345px;
+}
+
+.new-route-instructions ul li{
+  word-wrap: break-word;
+  margin: 0 0 10px 0;
+}
 #map-container{
-  width: 800px;
-  height: 50vh;
+  width: 600px;
+  height: 500px;
 }
 
 #create-route-button {
   border-style: outset;
+  width: 600px;
   transition: all 1s;
   border-radius: 5px;
   border-width: 1px;
-  padding: 7px;
+  padding: 7px 0 7px 0;
   color: white;
   height: 40px;
-  margin: 15px;
+  margin: 15px 0 15px 0;
   min-height: 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,.3);
   display: flex;
