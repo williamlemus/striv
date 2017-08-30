@@ -17,6 +17,9 @@ class UserShow extends React.Component {
     if(this.props.user){
       return(
         <div className='user-show-main'>
+          <div className='user-edit'>
+            {this.props.currentUser.id === this.props.user.id ? <span><i className="fa fa-pencil" aria-hidden="true"></i></span> : ''}
+          </div>
           <section className='user-profile'>
             <img className='user-profile-image' src={this.props.user.image_url} />
             <ul>
