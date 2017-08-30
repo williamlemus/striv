@@ -6,10 +6,13 @@ export const getUser = userid => {
 };
 
 
-export const updateUser = user => {
+export const updateUser = (formData, userid) => {
   return $.ajax({
     method: 'PATCH',
-    url: `api/users/${user.user.id}`,
-    data: user
+    url: `api/users/${userid}`,
+    dataType: 'json',
+    contentType: false,
+    processData: false,
+    data: formData
   })
 }

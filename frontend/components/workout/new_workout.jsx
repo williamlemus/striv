@@ -62,6 +62,7 @@ class NewWorkout extends React.Component {
 
    componentDidMount(){
      //get all routes that user owns
+     this.props.clearErrors();
      this.props.getRoutes()
       .then(() =>{
         this.setState({loaded_data: true})

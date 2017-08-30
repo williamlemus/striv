@@ -148,12 +148,12 @@ a:hover{
 
 input {
   margin: 15px;
-  min-height: 30px;
+  min-height: 28px;
   font-size: 18px;
 }
 
 input[type=text], input[type=password]{
-  font-size: 24px;
+  font-size: 18px;
   text-indent: 8px;
 }
 
@@ -205,6 +205,11 @@ input[type=text], input[type=password]{
 
 .add-route a:hover{
   color: white;
+}
+
+textarea{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
 }
 
 /** Greetings **/
