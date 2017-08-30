@@ -12,8 +12,19 @@ class EditProfile extends React.Component {
       weight: user.weight,
       bio: user.bio,
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+  }
+
+  handleInput(e){
+    let name = e.target.name
+    let newVal = {};
+    newVal[name] = e.target.value;
+    this.setState(newVal);
+  }
 
   render(){
     const user = this.props.currentUser
@@ -31,7 +42,7 @@ class EditProfile extends React.Component {
         <label  htmlFor='bio'>Bio</label>
         <textarea id='bio' type='text' >{user.bio}</textarea>
         <label htmlFor='profile_pic'>Upload picture</label>
-        <input className='submit-btn' type='submit' value='Update Profile'/>
+        <input className='submit-btn' type='submit' onClick={this.handleSubmit} value='Update Profile'/>
       </form>
     </div>);
   }
