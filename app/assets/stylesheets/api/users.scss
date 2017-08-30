@@ -13,6 +13,7 @@
   justify-content: flex-start;
   flex-direction: column;
   padding-top: 70px;
+  margin-left: 5px;
 }
 
 .user-profile ul {
@@ -21,7 +22,8 @@
 }
 
 .user-show-main {
-
+  display: flex;
+  flex-direction: column;
 }
 
 .user-profile ul li {
@@ -84,4 +86,34 @@
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
+}
+
+.user-profile-stats{
+  display: flex;
+  height: 300px;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-profile-stats h2{
+  text-align: center;
+  font-size: 70px;
+  margin: 3px;
+  vertical-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+}
+
+.monthly-workouts{
+    align-self: flex-end;
+}
+
+.monthly-workouts h6{
+  color: grey;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  margin: 0;
 }

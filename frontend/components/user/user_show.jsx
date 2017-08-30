@@ -22,38 +22,46 @@ class UserShow extends React.Component {
           <div className='user-edit'>
             {this.props.currentUser.id === this.props.user.id ? <span><Link to='/profile/edit'><i className="fa fa-pencil" aria-hidden="true"></i></Link></span> : ''}
           </div>
-          <section className='user-profile'>
-            <img className='user-profile-image' src={this.props.user.image_url} />
-            <ul>
-              <li>
-                {this.props.user.first_name + ' ' + this.props.user.last_name}
-              </li>
-              { user.location ?
-                <li>
-                  <i className="fa fa-map-marker" aria-hidden="true"></i>
-                  <span>
-                    {this.props.user.location}
-                  </span>
-                </li>
 
-                : ''
-
-              }
-              { this.props.currentUser.id === this.props.user.id && user.weight ?
+          <div className='user-profile-stats'>
+            <section className='user-profile'>
+              <img className='user-profile-image' src={this.props.user.image_url} />
+              <ul>
                 <li>
-                  Weight:
-                  <span>
-                    {this.props.user.weight}
-                  </span>
-                  kg
+                  {this.props.user.first_name + ' ' + this.props.user.last_name}
                 </li>
-                : ''
-              }
-              <li>
-                {this.props.user.bio}
-              </li>
-            </ul>
-          </section>
+                { user.location ?
+                  <li>
+                    <i className="fa fa-map-marker" aria-hidden="true"></i>
+                    <span>
+                      {this.props.user.location}
+                    </span>
+                  </li>
+
+                  : ''
+
+                }
+                { this.props.currentUser.id === this.props.user.id && user.weight ?
+                  <li>
+                    Weight:
+                    <span>
+                      {this.props.user.weight}
+                    </span>
+                    kg
+                  </li>
+                  : ''
+                }
+                <li>
+                  {this.props.user.bio}
+                </li>
+              </ul>
+            </section>
+            <div className='monthly-workouts'>
+              Last 4 Weeks
+              <h2>{user.monthlyWorkouts}</h2>
+              <h6>Total Activities</h6>
+            </div>
+        </div>
           <WorkoutIndexContainer user_id={this.props.user.id} />
         </div>);
     } else {
