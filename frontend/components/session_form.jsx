@@ -42,7 +42,12 @@ class SessionForm extends React.Component {
   signupTextBoxes(){
     if(this.props.formType === 'signup'){
       return(
-        [<label>First Name</label>, <input type='text' name='first_name' className='input-text-login' key='fname'/>, <label>Last Name</label>, <input type='text' className='input-text-login' name='last_name' key='lname' />]
+        [
+          <label key='lfname' htmlFor='first_name'>First Name</label>,
+          <input type='text' id='first_name' name='first_name' className='input-text-login' key='fname'/>,
+          <label key='llname' htmlFor='last_name'>Last Name</label>,
+          <input type='text' id='last_name' className='input-text-login' name='last_name' key='lname' />
+        ]
       );
     } else{
       return '';
