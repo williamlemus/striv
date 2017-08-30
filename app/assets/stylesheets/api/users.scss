@@ -21,7 +21,7 @@
 }
 
 .user-show-main {
-  width: 70%;
+
 }
 
 .user-profile ul li {
@@ -30,4 +30,26 @@
 
 .user-profile ul li span {
   padding: 0 10px 0 10px;
+}
+
+.user-edit a {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-edit a span:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.user-edit a span{
+  border: 1px;
+  margin-top: 20px;
+  height: 10px;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(102,102,102,100);
+  color: rgba(102,102,102,100);
+  display: flex;
+  align-items: center;
 }

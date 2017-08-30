@@ -7,6 +7,7 @@ import ShowWorkoutContainer from '../workout/show_workout_container';
 import ShowRouteContainer from '../workout/show_route_container';
 import WorkoutIndexContainer from '../workout/workout_index_container';
 import UserShowContainer from '../user/user_show_container';
+import EditProfileContainer from '../user/edit_profile_container';
 import {Route, Switch} from 'react-router-dom';
 import {AuthRoute, ProtectedRoute} from '../../util/route_util';
 
@@ -31,6 +32,7 @@ class App extends React.Component {
               <ProtectedRoute path='/routes/:id' exact component={ShowRouteContainer} />
               <ProtectedRoute path='/new-route' exact component={NewRouteContainer} />
               <ProtectedRoute path='/new-workout' exact component={NewWorkoutContainer} />
+              <ProtectedRoute path='/profile/edit' exact component={EditProfileContainer} />
             </Switch>
           </div>
         </div>
