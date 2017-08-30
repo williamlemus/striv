@@ -42,7 +42,7 @@ class Greeting extends React.Component{
                   <span onClick={this.handleLogout} className='nav-bar-link'>
                     Logout
                   </span>
-                  <span className='add-route'><Link to='/new-route'>+</Link></span>
+                  <Link to='/new-route'><span className='add-route'>+</span></Link>
                 </div>
           </nav>
 
