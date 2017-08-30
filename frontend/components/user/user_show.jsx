@@ -62,7 +62,11 @@ class UserShow extends React.Component {
               <h6>Total Activities</h6>
             </div>
         </div>
-          <WorkoutIndexContainer user_id={this.props.user.id} />
+          {
+            user.totalWorkouts > 0 ?
+            <WorkoutIndexContainer user_id={this.props.user.id} />
+            : ''
+          }
         </div>);
     } else {
       return(<div></div>);
