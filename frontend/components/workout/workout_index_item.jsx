@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 const WorkoutIndexItem = (props) => {
-  // Will need to add user when I have user profile
   const user = props.users[props.workout.user_id];
   const route = props.routes[props.workout.route_id];
   if(props.workout instanceof Array){

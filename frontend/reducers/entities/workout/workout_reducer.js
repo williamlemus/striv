@@ -7,7 +7,10 @@ export const WorkoutsReducer = (state = {}, action) => {
       newState = Object.assign({}, state, {[action.workout.workout.id]: action.workout.workout});
       return newState;
     case RECEIVE_ALL_WORKOUTS:
-      newState = action.workouts.workouts;
+      newState = {}
+      if(action.workouts.workouts){
+        newState = action.workouts.workouts;
+      }
       newState.workout_ids = action.workouts.workout_ids;
       return newState;
     default:

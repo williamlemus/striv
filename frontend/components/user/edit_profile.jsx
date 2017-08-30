@@ -6,11 +6,11 @@ class EditProfile extends React.Component {
     super(props);
     const user = this.props.currentUser;
     this.state = {
-      first_name: user.first_name,
-      last_name: user.last_name,
-      location: user.location,
-      weight: user.weight,
-      bio: user.bio,
+      first_name: (user.first_name ? user.first_name : ''),
+      last_name: (user.last_name ? user.last_name : ''),
+      location: (user.location ? user.location : ''),
+      weight: (user.weight ? user.weight : ''),
+      bio: (user.bio ? user.bio : ''),
       image_file: null,
       image_url: null
     };
@@ -27,6 +27,7 @@ class EditProfile extends React.Component {
     if(this.state.image_file){
       formData.append("user[image]", this.state.image_file);
     }
+
     formData.append("user[first_name]", this.state.first_name);
     formData.append("user[last_name]", this.state.last_name);
     formData.append("user[location]", this.state.location);
@@ -77,7 +78,8 @@ class EditProfile extends React.Component {
               <textarea id='bio' className='user-update-bio' type='text' name='bio' defaultValue={user.bio}></textarea>
             </span>
             <div>
-              <input type='file' onChange={this.handleFile}></input>
+              <label htmlFor='profile-pic'>Change Profile Picture</label>
+              <input type='file' id='profile-pic' onChange={this.handleFile}></input>
               {
                 this.state.image_url ?
                 <img className='profile-pic' src={this.state.image_url} />

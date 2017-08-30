@@ -23,6 +23,7 @@
 
 class User < ApplicationRecord
   validates :username, :password_digest, :session_token, presence: true, uniqueness: true
+  validates :first_name, :last_name, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :workouts, dependent: :destroy

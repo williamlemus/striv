@@ -7,7 +7,9 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      first_name: "",
+      last_name: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -30,15 +32,21 @@ class SessionForm extends React.Component {
   }
 
   handleInput(e){
-    let username = this.state.username;
-    let password = this.state.password;
-    if(e.currentTarget.name === 'username'){
-      username = e.currentTarget.value;
-    } else {
-      password = e.currentTarget.value;
-    }
+    let name = e.target.name
+    let newVal = {};
+    newVal[name] = e.target.value;
+    this.setState(newVal);
+  }
 
-    this.setState({username: username, password: password});
+
+  signupTextBoxes(){
+    if(this.props.formType === 'signup'){
+      return(
+        [<label>First Name</label>, <input type='text' name='first_name' className='input-text-login' key='fname'/>, <label>Last Name</label>, <input type='text' className='input-text-login' name='last_name' key='lname' />]
+      );
+    } else{
+      return '';
+    }
   }
 
   render() {
@@ -60,14 +68,15 @@ class SessionForm extends React.Component {
             }
           </ul>
 
-          <form onSubmit={this.handleSubmit} className='session-form'>
+          <form className='session-form' onChange={this.handleInput}>
+            {this.signupTextBoxes()}
             <label htmlFor="username">Username</label>
-            <input className='input-text-login' type='text' id='username' name='username' onInput={this.handleInput}></input>
+            <input className='input-text-login' type='text' id='username' name='username'></input>
             <br/>
             <label htmlFor="password">Password</label>
-            <input className='input-text-login' type='password' id='password' name='password' onInput={this.handleInput}></input>
+            <input className='input-text-login' type='password' id='password' name='password'></input>
             <br/>
-            <input type='submit' className='submit-btn' value={this.props.formType === 'login' ? 'login' : 'signup'} />
+            <input type='submit' className='submit-btn' value={this.props.formType === 'login' ? 'login' : 'signup'} onClick={this.handleSubmit} />
           </form>
           <button onClick={this.handleGuestClick} className='submit-btn guest-login-btn'>Guest Login </button>
           <Link to={this.props.formType === 'login' ? 'signup' : 'login'}>

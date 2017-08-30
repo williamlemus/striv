@@ -12,7 +12,10 @@ export const UsersReducer = (state = {}, action) => {
       newState = Object.assign({}, state, {[action.route.user.id]: action.route.user});
       return newState;
     case RECEIVE_ALL_WORKOUTS:
-      newState = action.workouts.users;
+      newState = state;
+      if(action.workouts.users){
+        newState = action.workouts.users;
+      }
       return newState;
     default:
       return state;
