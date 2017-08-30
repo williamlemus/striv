@@ -32,18 +32,19 @@
   padding: 0 10px 0 10px;
 }
 
-.user-edit a {
+.user-edit {
   display: flex;
   justify-content: flex-end;
 }
 
-.user-edit a span:hover {
+.user-edit a:hover {
   background-color: #f5f5f5;
   cursor: pointer;
 }
 
-.user-edit a span{
+.user-edit a{
   border: 1px;
+  width: 20px;
   margin-top: 20px;
   height: 10px;
   padding: 10px;
@@ -52,4 +53,5 @@
   color: rgba(102,102,102,100);
   display: flex;
   align-items: center;
+  justify-content: center;
 }

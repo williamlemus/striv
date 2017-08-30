@@ -20,7 +20,7 @@ class UserShow extends React.Component {
       return(
         <div className='user-show-main'>
           <div className='user-edit'>
-            {this.props.currentUser.id === this.props.user.id ? <Link to='/profile/edit'><span><i className="fa fa-pencil" aria-hidden="true"></i></span></Link> : ''}
+            {this.props.currentUser.id === this.props.user.id ? <span><Link to='/profile/edit'><i className="fa fa-pencil" aria-hidden="true"></i></Link></span> : ''}
           </div>
           <section className='user-profile'>
             <img className='user-profile-image' src={this.props.user.image_url} />
