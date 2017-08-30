@@ -38,4 +38,9 @@ export const newWorkout = (workout) => (dispatch) => {
 export const getWorkout = (workoutid) => dispatch => {
   return WorkoutAPI.getWorkout(workoutid)
     .then(workout => dispatch(receiveWorkout(workout)), error => dispatch(receiveErrors(error.responseJSON)));
-}
+};
+
+export const updateWorkout = workout => dispatch => {
+  return WorkoutAPI.updateWorkout(workout)
+    .then(workout => dispatch(receiveWorkout(workout)), error => dispatch(receiveErrors(error.responseJSON)));
+};

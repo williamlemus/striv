@@ -37,6 +37,7 @@ class NewWorkout extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     let workoutDetails = Object.assign({}, this.state);
+    // TODO: I don't think I need this, remove. check and remove
     workoutDetails.user_id = this.props.currentUser.id;
     //dispatch time!
     this.props.clearErrors();

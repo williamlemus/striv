@@ -35,4 +35,12 @@ export const getUserWorkouts = (user_id) => {
     url: `api/users/${user_id}/workouts`
   });
 };
-//TODO: update workouts
+
+export const updateWorkout = workout => {
+  return $.ajax({
+    method: 'PATCH',
+    dataType: 'json',
+    url: `api/workouts/${workout.workout.id}`,
+    data: workout
+  });
+}

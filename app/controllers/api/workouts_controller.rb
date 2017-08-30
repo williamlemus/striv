@@ -28,7 +28,15 @@ class Api::WorkoutsController < ApplicationController
   end
 
   def update
-    #TODO
+    @workout = Workout.includes(:user, :route).find_by(id: params[:id])
+    if @workout.user_id != current_user.id
+      render json: ['Cannot edit other users workout!'], status: 401
+    elsif @workout.update(workout_params)
+      render :show
+    else
+      render json: @workout.errors.full_messages, status: 422
+    end
+
   end
 
   def destroy
@@ -45,7 +53,7 @@ class Api::WorkoutsController < ApplicationController
 
   def workout_params
     base_params = params.require(:workout).permit(:title, :exercise, :start_datetime, :description, :user_id, :hours, :minutes, :seconds, :route_id)
-    base_params[:workout_time] = time_in_seconds(base_params[:hours], base_params[:minutes], base_params[:seconds])
+    base_params[:workout_time] = time_in_seconds(base_params[:hours], base_params[:minutes], base_params[:seconds]) unless base_params[:hours].nil? && base_params[:minutes].nil? && base_params[:seconds].nil?
     base_params.permit(:title, :exercise, :start_datetime, :description, :user_id, :workout_time, :route_id)
   end
 

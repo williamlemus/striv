@@ -42,6 +42,7 @@
 #exercise_type{
   height: 30px;
   margin-left: 10px;
+  font: inherit;
 }
 
 .new-workout-form fieldset input {
@@ -247,5 +248,52 @@
 
 .workout-pic-container{
   min-height: 250px;
+}
 
+.edit-workout-modal-screen {
+
+  position: fixed;
+  background-color: rgba(0,0,0,.5);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.modal {
+  transition: all 1s;
+  display: none;
+}
+
+.modal.is-active {
+  display: block;
+}
+
+
+.edit-form{
+  padding: 20px;
+  position: absolute;
+  z-index: 6;
+  top: 20%;
+  left: 33%;
+  height: 175px;
+  width: 500px;
+  border-radius: 3px;
+  background-color: rgb(247, 247, 247);
+}
+
+.close-edit-form {
+  position: absolute;
+  top: -20px;
+  right: -15px;
+  color: whitesmoke;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 6;
+  font-size: 20px;
+}
+
+.edit-workout-title {
+  padding: 8px 0 8px 0;
 }
