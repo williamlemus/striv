@@ -32,17 +32,17 @@
   padding: 0 10px 0 10px;
 }
 
-.user-edit {
+.user-edit a {
   display: flex;
   justify-content: flex-end;
 }
 
-.user-edit span:hover {
+.user-edit a span:hover {
   background-color: #f5f5f5;
   cursor: pointer;
 }
 
-.user-edit span{
+.user-edit a span{
   border: 1px;
   margin-top: 20px;
   height: 10px;

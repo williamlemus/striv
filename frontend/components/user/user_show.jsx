@@ -1,5 +1,6 @@
 import React from 'react';
 import WorkoutIndexContainer from '../workout/workout_index_container';
+import { Link } from 'react-router-dom';
 
 class UserShow extends React.Component {
 
@@ -18,7 +19,7 @@ class UserShow extends React.Component {
       return(
         <div className='user-show-main'>
           <div className='user-edit'>
-            {this.props.currentUser.id === this.props.user.id ? <span><i className="fa fa-pencil" aria-hidden="true"></i></span> : ''}
+            {this.props.currentUser.id === this.props.user.id ? <Link to='/profile/edit'><span><i className="fa fa-pencil" aria-hidden="true"></i></span></Link> : ''}
           </div>
           <section className='user-profile'>
             <img className='user-profile-image' src={this.props.user.image_url} />
