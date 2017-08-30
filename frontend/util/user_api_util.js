@@ -4,3 +4,12 @@ export const getUser = userid => {
     url: `api/users/${userid}`
   });
 };
+
+
+export const updateUser = user => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/users/${user.user.id}`,
+    data: user
+  })
+}

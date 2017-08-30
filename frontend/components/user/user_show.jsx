@@ -16,6 +16,7 @@ class UserShow extends React.Component {
 
   render(){
     if(this.props.user){
+      const user = this.props.user
       return(
         <div className='user-show-main'>
           <div className='user-edit'>
@@ -27,13 +28,18 @@ class UserShow extends React.Component {
               <li>
                 {this.props.user.first_name + ' ' + this.props.user.last_name}
               </li>
-              <li>
-                <i className="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  {this.props.user.location}
-                </span>
-              </li>
-              { this.props.currentUser.id === this.props.user.id ?
+              { user.location ?
+                <li>
+                  <i className="fa fa-map-marker" aria-hidden="true"></i>
+                  <span>
+                    {this.props.user.location}
+                  </span>
+                </li>
+
+                : ''
+
+              }
+              { this.props.currentUser.id === this.props.user.id && user.weight ?
                 <li>
                   Weight:
                   <span>

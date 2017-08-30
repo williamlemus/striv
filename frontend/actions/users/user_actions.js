@@ -15,4 +15,11 @@ export const getUser = userid => dispatch => {
     return UserAPI.getUser(userid)
       .then(user => dispatch(receiveUser(user)),
         error => dispatch(receiveErrors(error.responseJSON)));
-}
+};
+
+
+export const updateUser = user => dispatch => {
+  return UserAPI.updateUser(user)
+    .then(user => dispatch(receiveUser(user)),
+      error => dispatch(receiveErrors(error.responseJSON)));
+};

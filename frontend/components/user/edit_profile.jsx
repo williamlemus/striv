@@ -13,10 +13,16 @@ class EditProfile extends React.Component {
       bio: user.bio,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
+    const userUpdates = this.state;
+
+    userUpdates.id = this.props.currentUser.id;
+    this.props.updateUser(userUpdates)
+      .then((res) => this.props.history.push(`/users/${res.user.id}`));
   }
 
   handleInput(e){
@@ -30,17 +36,17 @@ class EditProfile extends React.Component {
     const user = this.props.currentUser
     return(<div>
 
-      <form className='user-update-form'>
+      <form className='user-update-form' onChange={this.handleInput}>
         <label htmlFor='first_name'>First Name</label>
-        <input id='first_name' type='text' defaultValue={user.first_name} />
+        <input id='first_name' type='text' defaultValue={user.first_name} name='first_name' />
         <label htmlFor='last_name'>Last Name</label>
-        <input id='last_name' type='text' defaultValue={user.last_name} />
+        <input id='last_name' type='text' defaultValue={user.last_name} name='last_name' />
         <label htmlFor='location'>Location</label>
-        <input id='location' type='text' defaultValue={user.location} />
+        <input id='location' type='text' defaultValue={user.location} name='location' />
         <label htmlFor='weight'>Weight(kg)</label>
-        <input id='weight' type='text' defaultValue={user.weight} />
+        <input id='weight' type='number' defaultValue={user.weight} name='weight'/>
         <label  htmlFor='bio'>Bio</label>
-        <textarea id='bio' type='text' >{user.bio}</textarea>
+        <textarea id='bio' type='text' name='bio' defaultValue={user.bio}></textarea>
         <label htmlFor='profile_pic'>Upload picture</label>
         <input className='submit-btn' type='submit' onClick={this.handleSubmit} value='Update Profile'/>
       </form>
