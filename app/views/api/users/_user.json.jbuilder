@@ -21,3 +21,6 @@ json.totalDistance totalDistance
 json.totalWorkouts user.workouts.length
 json.monthlyWorkouts monthly_workouts.length
 json.monthlyDistance monthly_distance
+
+route_ids = user.routes.map(&:id)
+json.route_ids route_ids
