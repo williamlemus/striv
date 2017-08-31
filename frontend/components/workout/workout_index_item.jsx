@@ -32,7 +32,7 @@ const WorkoutIndexItem = (props) => {
           {route.distance/1000}km
         </span>
         <div>
-          <WorkoutMap polyline={route.polyline} />
+          <WorkoutMap polyline={route.polyline} workoutid={props.workout.id} />
         </div>
       <br/>
     </div>);

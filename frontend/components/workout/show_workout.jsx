@@ -104,12 +104,15 @@ class ShowWorkout extends React.Component{
             <div className='workout-info'>
               <div className='workout-title'>
                 <h5 className='workout-date'>{new Date(workout.start_datetime).toLocaleString()}</h5>
+              <div>
+
                 <h3>
                   {workout.title}
                 </h3>
                 <h4>
                   {workout.description}
                 </h4>
+              </div>
               </div>
               <div className='workout-stats'>
                 <ul>

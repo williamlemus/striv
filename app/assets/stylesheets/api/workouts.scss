@@ -13,6 +13,7 @@
 .new-workout-form input {
   height: 30px;
   text-indent: 8px;
+  width: 229px;
 }
 .new-workout-form textarea{
   padding: 10px;
@@ -99,6 +100,8 @@
 .workout-detail {
   border: 1px solid lightgrey;
   margin: 100px 0 30px 0;
+  width: 900px;
+  box-sizing: border-box;
 }
 
 .workout-edit {
@@ -167,11 +170,9 @@
 }
 
 .workout-title h3 {
-  height: 18px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 30px;
-  padding-bottom: 6px;
   margin: 0;
 }
 
@@ -227,6 +228,7 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 800;
   font-size: 14px;
+  width: 175px;
 }
 
 .workout-index-distance {
@@ -241,7 +243,7 @@
 
 .workout-feed-item {
   height: 200px;
-  width: 550px;
+  width: 575px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -285,7 +287,7 @@
   z-index: 6;
   top: 20%;
   left: 33%;
-  height: 175px;
+  height: 210px;
   width: 500px;
   border-radius: 3px;
   background-color: rgb(247, 247, 247);

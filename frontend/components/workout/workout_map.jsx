@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 const WorkoutMap = props => {
@@ -6,8 +7,9 @@ const WorkoutMap = props => {
   mapSrc += props.polyline + '&key=AIzaSyA2bhqcE3BfEwbAQo1dn51jdh3H3ZKW6jQ';
   return(
     <div>
-
-      <img src={mapSrc}/>
+      <Link to={'/workouts/' + props.workoutid}>
+        <img src={mapSrc}/>
+      </Link>
     </div>
   )
 };
