@@ -26,12 +26,6 @@ class RoutesIndex extends React.Component {
     }
   }
 
-  componentWillReceiveProps(newProps){
-    if(this.state.loaded_data === false){
-      this.props.getRoutes().then(() => this.setState({loaded_data: true}));
-    }
-  }
-
   handleInput(e){
     let name = e.target.name
     let newVal = {};
