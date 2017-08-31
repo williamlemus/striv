@@ -24,10 +24,10 @@ class ShowRoute extends React.Component{
     let routePolyline = new google.maps.Polyline({
       path: google.maps.geometry.encoding.decodePath(this.props.route.polyline),
     });
-    let middle = Math.floor(routePolyline.latLngs.b[0].length /2);
-    let middlePoint =  routePolyline.latLngs.b[0].b[middle].toJSON();
+    let bounds = new google.maps.LatLngBounds();
+    routePolyline.getPath().forEach((l) => bounds.extend(l));
+
     const mapOptions = {
-      center: middlePoint,
       zoom: 13,
       disableDefaultUI: true,
       zoomControl: true
@@ -35,6 +35,7 @@ class ShowRoute extends React.Component{
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     routePolyline.setMap(this.map);
+    this.map.fitBounds(bounds);
   }
 
 

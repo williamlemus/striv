@@ -112,7 +112,7 @@ class NewWorkout extends React.Component {
               }
             </select>
             </div>
-            <div>
+            <div className='new-workout-form-description'>
               <label htmlFor='description'>Description</label>
               <textarea id='description' name='description'></textarea>
             </div>

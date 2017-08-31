@@ -76,6 +76,19 @@ h1 {
   padding-left: 15px;
 }
 
+.header-right-links {
+  margin-top: 1px;
+}
+
+.header-right-links * {
+  margin: 0 5px 0 5px;
+  vertical-align: middle;
+}
+
+.header-username {
+  vertical-align: sub;
+}
+
 .logo{
   font-family: 'Exo', sans-serif;
   font-weight: bold;
@@ -206,6 +219,24 @@ input[type=text], input[type=password]{
 
 .add-route a:hover{
   color: white;
+}
+
+.new-route-link:hover{
+  cursor: pointer;
+  background-color: #FC4C02;
+  color: white;
+}
+
+.new-route-link {
+  border: 2px solid #FC4C02;
+
+  padding: 3px;
+  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  vertical-align: text-top;
+  background-color: white;
+  color: #FC4C02;
 }
 
 textarea{

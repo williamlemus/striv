@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import WorkoutMap from './workout_map'
 
 
 const WorkoutIndexItem = (props) => {
@@ -30,7 +31,9 @@ const WorkoutIndexItem = (props) => {
         <span className='workout-index-distance'>
           {route.distance/1000}km
         </span>
-
+        <div>
+          <WorkoutMap polyline={route.polyline} />
+        </div>
       <br/>
     </div>);
   }

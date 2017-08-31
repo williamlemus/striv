@@ -7,7 +7,7 @@
   padding: 10px;
   font-size: 18px;
   padding-left: 15px;
-  min-width: 810px;
+  width: 810px;
 }
 
 .new-workout-form input {
@@ -79,6 +79,10 @@
 .new-workout-route-selector select{
   width: 140px;
   height: 30px;
+}
+
+.new-workout-form-description{
+    margin-top: 15px;
 }
 
 .workout-container{
@@ -207,7 +211,9 @@
 
 .workout-index {
   margin-top: 80px;
-  width: 50%;
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .workout-feed {
@@ -235,7 +241,7 @@
 
 .workout-feed-item {
   height: 200px;
-  width: 250px;
+  width: 550px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -298,4 +304,14 @@
 
 .edit-workout-title {
   padding: 8px 0 8px 0;
+}
+
+.user-stats li{
+  padding-top: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.workout-feed-map{
+  height: 150px;
+  width: 250px;
 }

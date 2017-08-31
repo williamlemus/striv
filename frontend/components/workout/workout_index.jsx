@@ -23,9 +23,13 @@ class WorkoutIndex extends React.Component {
     } else if(this.props.workouts.length <= 1){
       return( <h2>Add some <Link to='new-workout'>workouts</Link></h2>);
     } else {
-
+      let user;
+      if(this.props.user_id){
+        user = this.props.users[this.props.user_id];
+      } else {
+        user = this.props.currentUser;
+      }
       return(
-
         <div className='workout-index'>
           <div>
             <h1>Activity Feed</h1>
@@ -39,7 +43,10 @@ class WorkoutIndex extends React.Component {
               }
             </div>
           </div>
-          <UserStats />
+          {/*styles for user-stats are in user*/}
+          <div className='user-stats-container'>
+            <UserStats user={user} currentUser={this.props.currentUser} />
+          </div>
         </div>
       );
     }

@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
     workouts: allWorkouts(state),
     users: state.entities.users,
     routes: state.entities.routes,
-    user_id: ownProps.user_id
+    user_id: ownProps.user_id,
+    currentUser: state.session.currentUser
   });
 };
 

@@ -32,8 +32,8 @@ class Greeting extends React.Component{
                 </Link>
               </span>
             </div>
-              <div>
-                <span>{this.props.currentUser.username}</span>
+              <div className='header-right-links'>
+                <span className='header-username'>{this.props.currentUser.username}</span>
                 <span>
                   <Link to={'/users/' + this.props.currentUser.id}>
                     <img className='profile-pic' src={this.props.currentUser.image_url} />
@@ -42,7 +42,12 @@ class Greeting extends React.Component{
                   <span onClick={this.handleLogout} className='nav-bar-link'>
                     Logout
                   </span>
-                  <Link to='/new-route'><span className='add-route'>+</span></Link>
+                  <Link to='/new-route'>
+                    <button className='new-route-link'>
+                      +
+                    </button>
+                  </Link>
+
                 </div>
           </nav>
 
