@@ -1,6 +1,7 @@
 import {RECEIVE_ERRORS, RECEIVE_CURRENT_USER} from '../../actions/session_actions';
 import {RECEIVE_ROUTES} from '../../actions/routes/route_actions';
 import {RECEIVE_USER} from '../../actions/users/user_actions';
+import {RECEIVE_WORKOUT} from '../../actions/workouts/workout_actions';
 const nullUser = {
   currentUser: null,
   errors: []
@@ -24,6 +25,13 @@ export const SessionReducer = (state = nullUser, action) =>{
       } else {
         return state;
       }
+    case RECEIVE_WORKOUT:
+    debugger
+      if(action.workout.workout.user_id === state.currentUser.id){
+        newState = Object.assign({}, state, {currentUser: action.workout.user});
+        return newState;
+      }
+      return state;
     default:
       return state;
   }

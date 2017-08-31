@@ -17,6 +17,9 @@ export const UsersReducer = (state = {}, action) => {
         newState = action.workouts.users;
       }
       return newState;
+    case RECEIVE_WORKOUT:
+      newState = Object.assign({}, state, {[action.workout.workout.user_id]: action.user})
+      return newState;
     default:
       return state;
   }
