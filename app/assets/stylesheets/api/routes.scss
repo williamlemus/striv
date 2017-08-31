@@ -101,3 +101,25 @@
   font-weight: 300;
   font-size: 12px;
 }
+
+.route-feed{
+  display: flex;
+
+}
+.route-feed *{
+  margin-right: 2px;
+
+}
+
+.route-feed-item{
+  display: flex;
+  margin: 20px 10px 20px 10px;
+  flex-direction: column;
+  padding: 10px;
+  background-color: whitesmoke;
+  border: 1px solid #f6f0f0;
+}
+
+.route-options{
+  display: flex;
+}

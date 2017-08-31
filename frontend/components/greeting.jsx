@@ -31,6 +31,11 @@ class Greeting extends React.Component{
                   New Workout
                 </Link>
               </span>
+              <span className='header-links'>
+                <Link to='/routes'>
+                  My Routes
+                </Link>
+              </span>
             </div>
               <div className='header-right-links'>
                 <span className='header-username'>{this.props.currentUser.username}</span>

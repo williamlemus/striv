@@ -4,3 +4,11 @@ export const allWorkouts = state => {
   }
   );
 };
+
+
+export const allRoutes = state => {
+  return Object.keys(state.entities.routes).map((key) => {
+    return state.entities.routes[key]
+  }
+  );
+};
