@@ -28,3 +28,13 @@ export const getRoutes = () => {
     url: 'api/routes'
   });
 };
+
+
+export const updateRoute = route => {
+  return $.ajax({
+    method: 'PATCH',
+    dataType: 'json',
+    url: `api/routes/${route.route.id}`,
+    data: route
+  });
+};

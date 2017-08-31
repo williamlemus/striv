@@ -1,7 +1,8 @@
 import {connect} from 'react-redux';
 import RouteIndex from './route_index';
 import {allWorkouts, allRoutes} from '../../reducers/selectors';
-import {getRoutes} from '../../actions/routes/route_actions';
+import {getRoutes, deleteRoute, updateRoute} from '../../actions/routes/route_actions';
+import {receiveErrors} from '../../actions/error_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return({
@@ -15,7 +16,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return({
     getRoutes: () => dispatch(getRoutes()),
-
+    updateRoute: (route) => dispatch(updateRoute({route: route})),
+    deleteRoute: routeid => dispatch(deleteRoute(routeid)),
+    clearErrors: () => dispatch(receiveErrors([]))
   })
 };
 

@@ -24,6 +24,23 @@ class Api::RoutesController < ApplicationController
     end
   end
 
+  def update
+    @route = Route.includes(:user).find_by(id: params[:id])
+    if @route.user_id != current_user.id
+      render json: ['Cannot edit other users route!'], status: 401
+    elsif @route.update(route_params)
+      render :show
+    else
+      render json: @route.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+    @route = Route.find_by(id: params[:id])
+    @route.destroy
+    render :show
+  end
+
   private
 
   def route_params

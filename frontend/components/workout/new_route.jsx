@@ -125,7 +125,7 @@ class NewRoute extends React.Component{
 
      //needs to be newRoute not workout and go to route page i guess?
      this.props.newRoute(routeDetails).then((res) =>{
-       this.props.history.push(`/routes/${res.route.id}`);
+       this.props.history.push(`/routes/${res.route.route.id}`);
      });
 
    }

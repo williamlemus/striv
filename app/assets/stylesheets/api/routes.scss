@@ -104,7 +104,8 @@
 
 .route-feed{
   display: flex;
-
+  width: 900px;
+  flex-wrap: wrap;
 }
 .route-feed *{
   margin-right: 2px;

@@ -5,11 +5,6 @@ import RouteMap from './route_map'
 class RouteIndexItem extends React.Component{
   constructor(props){
     super(props);
-    this.toggleModal = this.toggleModal.bind(this);
-  }
-
-  toggleModal(){
-    alert('routingglndfdsf')
   }
 
   render(){
@@ -40,8 +35,8 @@ class RouteIndexItem extends React.Component{
           </div>
           <br/>
           <div className='route-options'>
-            {this.props.currentUser.id === this.props.route.user_id ? <span onClick={this.toggleModal} className='workout-edit' name='edit'><i className="fa fa-pencil" aria-hidden="true"></i></span> : ''}
-            {this.props.currentUser.id === this.props.route.user_id ? <span onClick={this.toggleModal} className='workout-edit' name='delete'><i className="fa fa-trash" aria-hidden="true"></i></span> : ''}
+            {this.props.currentUser.id === this.props.route.user_id ? <span onClick={(e)=>this.props.toggleModal(e, this.props.route)} className='workout-edit' name='edit'><i className="fa fa-pencil" aria-hidden="true"></i></span> : ''}
+            {this.props.currentUser.id === this.props.route.user_id ? <span onClick={(e)=>this.props.toggleModal(e, this.props.route)} className='workout-edit' name='delete'><i className="fa fa-trash" aria-hidden="true"></i></span> : ''}
           </div>
         </div>);
       }

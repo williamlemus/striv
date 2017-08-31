@@ -6,7 +6,16 @@ import {Link} from 'react-router-dom'
 class RoutesIndex extends React.Component {
   constructor(props){
     super(props);
-    this.state = {loaded_data: false};
+    this.state = {
+      loaded_data: false,
+      toggleModal: false,
+      title: '',
+      routeid: '',
+      button: ''
+    };
+    this.toggleModal = this.toggleModal.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
@@ -17,10 +26,73 @@ class RoutesIndex extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps){
+    if(this.state.loaded_data === false){
+      this.props.getRoutes().then(() => this.setState({loaded_data: true}));
+    }
+  }
+
+  handleInput(e){
+    let name = e.target.name
+    let newVal = {};
+    newVal[name] = e.target.value;
+    this.setState(newVal);
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    let routeUpdates = Object.assign({}, this.state);
+    this.props.clearErrors();
+    delete(routeUpdates.toggleModal);
+    delete(routeUpdates.button);
+    delete(routeUpdates.loaded_data);
+    routeUpdates.id = this.state.routeid;
+    if(this.state.button === 'edit'){
+      this.props.updateRoute(routeUpdates)
+      .then(() => this.toggleModal());
+    } else {
+      this.props.deleteRoute(this.state.routeid).then(()=>{
+        this.setState({loaded_data: true}, () => {
+          this.props.getRoutes();
+          this.toggleModal();
+        });
+      }
+      );
+
+    }
+  }
+
+  showEditInputFields(){
+    if(this.state.button === 'edit'){
+      return(
+        [
+          <label htmlFor='title' key='edit_input10'>Title</label>,
+          <input id='title' defaultValue={this.state.title} name='title' key='edit_input11'/>
+        ]);
+    }
+  }
+
+  toggleModal(e, route){
+    if(this.state.toggleModal){
+      // untoggle
+      this.setState({toggleModal: false, button: ''});
+    } else {
+      // set the initial state of the things to be edited
+      let name = e.currentTarget.getAttribute('name');
+      this.setState({
+        toggleModal: true,
+        title: route.title,
+        routeid: route.id,
+        button: name
+      });
+
+    }
+  }
+
   render(){
     if( !this.state.loaded_data){
       return null;
-    } else if(this.props.routes.length <= 1){
+    } else if(this.props.routes.length === 0){
       return( <h2>Add some <Link to='new-route'>routes</Link></h2>);
     } else {
       let user;
@@ -40,10 +112,21 @@ class RoutesIndex extends React.Component {
               {
                 this.props.routes.map((route, idx) => {
                   return(
-                    <RoutesIndexItem route={route} users={this.props.users} currentUser = {this.props.currentUser}  key={idx} />
+                    <RoutesIndexItem route={route} users={this.props.users} currentUser = {this.props.currentUser} toggleModal={this.toggleModal} key={idx} />
                   )
                 })
               }
+            </div>
+            <div className={'edit-workout-modal-screen modal' + (this.state.toggleModal ? 'is-active' : '')} onClick={this.toggleModal}>
+              <div className='edit-form' onClick={e => e.stopPropagation()}>
+                <div className='close-edit-form' onClick={this.toggleModal}>X</div>
+                {this.props.errors ? this.props.errors.map((el, idx)=> <div className='error' key={idx}>{el}</div>) : null}
+                <div className='edit-workout-title'>{this.state.button === 'edit' ? 'Edit Workout' : 'Delete Workout'}</div>
+                <form onChange={this.handleInput}>
+                  {this.showEditInputFields()}
+                  <input type='submit' onClick={this.handleSubmit} className='submit-btn' value={this.state.button === 'edit' ? 'Edit Workout' : 'Delete Workout'}/>
+                </form>
+              </div>
             </div>
           </div>
         </div>

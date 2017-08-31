@@ -32,3 +32,14 @@ export const getRoutes = () => dispatch => {
   return RoutesAPI.getRoutes()
     .then(routes => dispatch(receiveRoutes(routes)), error => dispatch(receiveErrors(error.responseJSON)));
 }
+
+
+export const updateRoute = (route) => dispatch => {
+  return RoutesAPI.updateRoute(route)
+    .then(routes => dispatch(receiveRoute(routes)), error => dispatch(receiveErrors(error.responseJSON)));
+}
+
+export const deleteRoute = (routeid) => dispatch => {
+  return RoutesAPI.deleteRoute(routeid)
+    .then(route => dispatch(receiveRoute(route)), error => dispatch(receiveErrors(error.responseJSON)));
+}
