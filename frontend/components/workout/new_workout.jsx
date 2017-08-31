@@ -40,6 +40,7 @@ class NewWorkout extends React.Component {
     // TODO: I don't think I need this, remove. check and remove
     workoutDetails.user_id = this.props.currentUser.id;
     //dispatch time!
+    workoutDetails.start_datetime = new Date(workoutDetails.start_datetime);
     this.props.clearErrors();
     this.props.newWorkout(workoutDetails).then((res) =>{
       this.props.history.push(`/workouts/${res.workout.workout.id}`);
