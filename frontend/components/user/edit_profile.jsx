@@ -77,9 +77,9 @@ class EditProfile extends React.Component {
               <label htmlFor='bio'>Bio</label>
               <textarea id='bio' className='user-update-bio' type='text' name='bio' defaultValue={user.bio}></textarea>
             </span>
-            <div>
-              <label htmlFor='profile-pic'>Change Profile Picture</label>
-              <input type='file' id='profile-pic' onChange={this.handleFile}></input>
+            <div className='profile-pic-update'>
+              <label htmlFor='profile-pic' className='nav-bar-link profile-pic-button'>Change Profile Picture</label>
+              <input type='file' accept='.jpg, .jpeg, .png' id='profile-pic' onChange={this.handleFile}></input>
               {
                 this.state.image_url ?
                 <img className='profile-pic' src={this.state.image_url} />

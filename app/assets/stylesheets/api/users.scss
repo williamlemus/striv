@@ -59,7 +59,7 @@
 }
 
 .user-update-form{
-  width: 835px;
+  width: 810px;
   margin-top: 40px;
 }
 
@@ -67,6 +67,7 @@
   vertical-align: middle;
   margin-left: 10px;
   text-indent: 5px;
+  width: 325px;
 }
 
 .user-update-weight{
@@ -86,6 +87,7 @@
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
+  align-items: center;
 }
 
 .user-profile-stats{
@@ -123,4 +125,15 @@
   padding: 20px;
   border-radius: 2px;
   height: 350px;
+}
+
+#profile-pic {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.profile-pic-update{
+  margin-left: 30px;
+  width: 215px;
 }
