@@ -26,7 +26,6 @@ export const SessionReducer = (state = nullUser, action) =>{
         return state;
       }
     case RECEIVE_WORKOUT:
-    debugger
       if(action.workout.workout.user_id === state.currentUser.id){
         newState = Object.assign({}, state, {currentUser: action.workout.user});
         return newState;

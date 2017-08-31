@@ -43,4 +43,4 @@ export const updateWorkout = workout => {
     url: `api/workouts/${workout.workout.id}`,
     data: workout
   });
-}
+};

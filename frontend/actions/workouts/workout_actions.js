@@ -44,3 +44,8 @@ export const updateWorkout = workout => dispatch => {
   return WorkoutAPI.updateWorkout(workout)
     .then(workout => dispatch(receiveWorkout(workout)), error => dispatch(receiveErrors(error.responseJSON)));
 };
+
+export const deleteWorkout = workoutid => dispatch => {
+  return WorkoutAPI.deleteWorkout(workoutid)
+    .then(workout => dispatch(receiveWorkout(workout)), error => dispatch(receiveErrors(error.responseJSON)));
+};

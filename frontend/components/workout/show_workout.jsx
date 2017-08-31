@@ -13,6 +13,7 @@ class ShowWorkout extends React.Component{
       title: '',
       exercise: '',
       description: '',
+      button: ''
     };
   }
 
@@ -57,17 +58,19 @@ class ShowWorkout extends React.Component{
     this.map.fitBounds(bounds);
   }
 
-  toggleModal(){
+  toggleModal(e){
     if(this.state.toggleModal){
       // untoggle
-      this.setState({toggleModal: false});
+      this.setState({toggleModal: false, button: ''});
     } else {
       // set the initial state of the things to be edited
+      let name = e.currentTarget.getAttribute('name');
       this.setState({
         toggleModal: true,
         title: this.props.workout.title,
         exercise: this.props.workout.exercise,
-        description: this.props.workout.description
+        description: this.props.workout.description,
+        button: name
       });
 
     }
@@ -86,8 +89,33 @@ class ShowWorkout extends React.Component{
     this.props.clearErrors();
     delete(workoutUpdates.toggleModal);
     workoutUpdates.id = this.props.workout.id;
-    this.props.updateWorkout(workoutUpdates)
-    .then(() => this.toggleModal());
+    if(this.state.button === 'edit'){
+      this.props.updateWorkout(workoutUpdates)
+      .then(() => this.toggleModal());
+    } else {
+      this.props.deleteWorkout(this.props.match.params.id).then(()=>{
+        this.props.clearErrors();
+        this.props.history.push('/') }
+      );
+
+    }
+  }
+
+  showEditInputFields(){
+    if(this.state.button === 'edit'){
+      return(
+        [
+          <label htmlFor='title' key={edit_input0}>Title</label>,
+          <input id='title' defaultValue={this.props.workout.title} name='title' key={edit_input}/>,
+          <label htmlFor='exercise_type' key={edit_input1}>Exercise Type</label>,
+          <select id='exercise_type' defaultValue={this.props.workout.exercise} name='exercise' key={edit_input2}>
+            <option value='ride'>ride</option>
+            <option value='run'>run</option>
+          </select>,
+          <label htmlFor='description' key={edit_input3}>Description</label>,
+          <input id='description' defaultValue={this.props.workout.description} name='description'/>
+        ]);
+    }
   }
 
   render(){
@@ -96,7 +124,8 @@ class ShowWorkout extends React.Component{
       const route = this.props.routes[workout.route_id];
       return (
         <div className='workout-container'>
-          {this.props.currentUser.id === this.props.workout.user_id ? <span onClick={this.toggleModal} className='workout-edit'><i className="fa fa-pencil" aria-hidden="true"></i></span> : ''}
+          {this.props.currentUser.id === this.props.workout.user_id ? <span onClick={this.toggleModal} className='workout-edit' name='edit'><i className="fa fa-pencil" aria-hidden="true"></i></span> : ''}
+          {this.props.currentUser.id === this.props.workout.user_id ? <span onClick={this.toggleModal} className='workout-edit' name='delete'><i className="fa fa-trash" aria-hidden="true"></i></span> : ''}
           <section className='workout-detail'>
             <div className='workout-exercise'>
               <h2>{workout.exercise}</h2>
@@ -138,18 +167,10 @@ class ShowWorkout extends React.Component{
             <div className='edit-form' onClick={e => e.stopPropagation()}>
               <div className='close-edit-form' onClick={this.toggleModal}>X</div>
               {this.props.errors ? this.props.errors.map((el, idx)=> <div className='error' key={idx}>{el}</div>) : null}
-              <div className='edit-workout-title'>Edit Workout</div>
+              <div className='edit-workout-title'>{this.state.button === 'edit' ? 'Edit Workout' : 'Delete Workout'}</div>
               <form onChange={this.handleInput}>
-                <label htmlFor='title'>Title</label>
-                <input id='title' defaultValue={workout.title} name='title'/>
-                <label htmlFor='exercise_type'>Exercise Type</label>
-                <select id='exercise_type' defaultValue={workout.exercise} name='exercise'>
-                  <option value='ride'>ride</option>
-                  <option value='run'>run</option>
-                </select>
-                <label htmlFor='description'>Description</label>
-                <input id='description' defaultValue={workout.description} name='description'/>
-                <input type='submit' onClick={this.handleSubmit} className='submit-btn' value='Edit Workout'/>
+                {this.showEditInputFields()}
+                <input type='submit' onClick={this.handleSubmit} className='submit-btn' value={this.state.button === 'edit' ? 'Edit Workout' : 'Delete Workout'}/>
               </form>
             </div>
           </div>
