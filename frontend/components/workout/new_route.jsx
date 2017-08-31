@@ -35,16 +35,11 @@ class NewRoute extends React.Component{
       };
 
       this.map = new google.maps.Map(this.mapNode, mapOptions);
-
-      this.bikeLayer = new google.maps.BicyclingLayer();
-      this.bikeLayer.setMap(this.map);
-
       this.directionsService = new google.maps.DirectionsService;
       this.directionsDisplay = new google.maps.DirectionsRenderer({
 
       });
       this.directionsDisplay.setMap(this.map);
-
 
       let marker;
       google.maps.event.addListener(this.map, 'click', (event) =>{
@@ -59,7 +54,6 @@ class NewRoute extends React.Component{
           marker.setMap(null);
         }
         if(that.lineCoords.length > 1) {
-
           that.calculateAndDisplayRoute(that.directionsService, that.directionsDisplay, that.lineCoords);
         }
       });
@@ -77,7 +71,7 @@ class NewRoute extends React.Component{
     directionsService.route({
       origin: lineCoords[0],
       destination: lineCoords[lineCoords.length-1],
-      travelMode: google.maps.TravelMode['BICYCLING'],
+      travelMode: google.maps.TravelMode['WALKING'],
       avoidFerries: true,
       waypoints: waypoints,
     },
