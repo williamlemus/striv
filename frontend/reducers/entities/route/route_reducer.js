@@ -19,7 +19,7 @@ export const RoutesReducer = (state = {}, action) => {
       if(action.workouts.routes){
         return action.workouts.routes
       }
-      return state;
+      return {};
     default:
       return state;
   }
