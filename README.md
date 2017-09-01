@@ -1,24 +1,24 @@
-# README
+# strīv
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+[strīv live](https://striv.herokuapp.com)
 
-* Ruby version
+strīv is a full-stack web application inspired by Strava. It utilizes Ruby on Rails on the backend, a PosgreSQL database, and React.js with a Redux architectural framework on the frontend.
 
-* System dependencies
+## Features and Implementation
+### Rendering and creating routes
 
-* Configuration
+On the database side, maps are stored as encoded polylines which are then displayed when requested.The Google Maps API is used to render the route as the user selects points in real-time. The user can look at their own routes and edit the descriptions or delete them.
 
-* Database creation
+### Workouts
+A user can generate as many workouts from any of their routes. In the backend this is done as a one to many(one route can have many workouts). As the user navigates their or anyone's profile, stats are displayed. The Google static image API is used to display completed workouts.
 
-* Database initialization
+![Workout Feed Sample](https://github.com/williamlemus/striv/blob/master/docs/images/ActivityFeed.png "Workout Feed Sample")
 
-* How to run the test suite
+## Future Directions for the project
 
-* Services (job queues, cache servers, search engines, etc.)
+### Friends
+Having friends is one of the most important features after being able to log workouts. The workout feed will include only workouts from friends, and users will be able to interact with friends through comments.
 
-* Deployment instructions
-
-* ...
+### Ride statistics
+I plan to leverage the Google Visualization API to increase visualizations of workout statistics such as elevation, average speed, and comparisons of route completion times over time.
