@@ -115,10 +115,10 @@ class RoutesIndex extends React.Component {
               <div className='edit-form' onClick={e => e.stopPropagation()}>
                 <div className='close-edit-form' onClick={this.toggleModal}>X</div>
                 {this.props.errors ? this.props.errors.map((el, idx)=> <div className='error' key={idx}>{el}</div>) : null}
-                <div className='edit-workout-title'>{this.state.button === 'edit' ? 'Edit Workout' : 'Delete Workout'}</div>
+                <div className='edit-workout-title'>{this.state.button === 'edit' ? 'Edit Route' : 'Delete Route'}</div>
                 <form onChange={this.handleInput}>
                   {this.showEditInputFields()}
-                  <input type='submit' onClick={this.handleSubmit} className='submit-btn' value={this.state.button === 'edit' ? 'Edit Workout' : 'Delete Workout'}/>
+                  <input type='submit' onClick={this.handleSubmit} className='submit-btn' value={this.state.button === 'edit' ? 'Edit Route' : 'Delete Route'}/>
                 </form>
               </div>
             </div>
