@@ -107,7 +107,7 @@ class ShowWorkout extends React.Component{
         [
           <label htmlFor='title' key='edit_input0'>Title</label>,
           <input id='title' defaultValue={this.props.workout.title} name='title' key='edit_input'/>,
-          <label htmlFor='exercise_type' key='edit_input1'>Exercise Type</label>,
+          <label htmlFor='exercise_type' key='edit_input1' className='workout-edit-exercise-label'>Exercise Type</label>,
           <select id='exercise_type' defaultValue={this.props.workout.exercise} name='exercise' key='edit_input2'>
             <option value='ride'>ride</option>
             <option value='run'>run</option>

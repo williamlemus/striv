@@ -89,13 +89,15 @@ h1 {
   vertical-align: sub;
 }
 
-.logo *{
+.logo, .logo *{
   font-family: 'Exo', sans-serif;
   font-weight: bold;
   font-size: 25pt;
   color: #FC4C02;
   padding-right: 30px;
 }
+
+
 
 .session_dialog{
   padding: 20px;
@@ -111,6 +113,14 @@ h1 {
   color: lightgrey;
   width: 400px;
   min-height: 420px;
+}
+
+.session_dialog h1{
+  color: whitesmoke;
+}
+
+.session_dialog a {
+  color: whitesmoke;
 }
 
 .session-form{
