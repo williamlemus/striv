@@ -15,6 +15,7 @@ section, p, footer, small {
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
+  color: #222;
 }
 
 header, nav, main, section,
@@ -88,7 +89,7 @@ h1 {
   vertical-align: sub;
 }
 
-.logo{
+.logo *{
   font-family: 'Exo', sans-serif;
   font-weight: bold;
   font-size: 25pt;
@@ -129,6 +130,7 @@ h1 {
   height: 40px;
   margin: 15px;
   min-height: 20px;
+  z-index: 1;
 }
 
 .submit-btn:hover{

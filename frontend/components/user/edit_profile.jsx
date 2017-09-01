@@ -62,6 +62,11 @@ class EditProfile extends React.Component {
     return(
       <div className='update-profile-container'>
         <form className='user-update-form' onChange={this.handleInput}>
+          <ul>
+            {
+              this.props.errors ? this.props.errors.map((el, idx) => <li key={idx} className='error'>{el}</li>) : ''
+            }
+          </ul>
           <label htmlFor='first_name'>First Name</label>
           <input id='first_name' className='user-update-namefield' type='text' defaultValue={user.first_name} name='first_name' />
           <label htmlFor='last_name'>Last Name</label>

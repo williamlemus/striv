@@ -5,7 +5,8 @@ import {withRouter} from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    errors: state.errors.errors
   });
 };
 
