@@ -17,7 +17,9 @@ export const SessionReducer = (state = nullUser, action) =>{
       return {currentUser: action.currentUser, errors: []};
     case RECEIVE_ROUTES:
       newState = Object.assign({}, state);
-      newState.currentUser.route_ids = Object.keys(action.routes).map((key)=> key);
+      if(action.routes.routes) {
+        newState.currentUser.route_ids = Object.keys(action.routes.routes).map((key)=> key);
+      }
       return newState;
     case RECEIVE_USER:
       if(action.user.id === state.currentUser.id){
