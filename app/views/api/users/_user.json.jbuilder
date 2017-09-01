@@ -1,5 +1,5 @@
 json.extract!(user, :id, :username, :first_name, :last_name, :location, :weight, :bio )
-json.image_url asset_path(user.image.url(:medium))
+json.image_url asset_path(user.image.url(:original))
 
 totalDistance = 0
 user.workouts.each do |workout|
