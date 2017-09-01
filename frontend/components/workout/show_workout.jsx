@@ -105,15 +105,15 @@ class ShowWorkout extends React.Component{
     if(this.state.button === 'edit'){
       return(
         [
-          <label htmlFor='title' key={edit_input0}>Title</label>,
-          <input id='title' defaultValue={this.props.workout.title} name='title' key={edit_input}/>,
-          <label htmlFor='exercise_type' key={edit_input1}>Exercise Type</label>,
-          <select id='exercise_type' defaultValue={this.props.workout.exercise} name='exercise' key={edit_input2}>
+          <label htmlFor='title' key='edit_input0'>Title</label>,
+          <input id='title' defaultValue={this.props.workout.title} name='title' key='edit_input'/>,
+          <label htmlFor='exercise_type' key='edit_input1'>Exercise Type</label>,
+          <select id='exercise_type' defaultValue={this.props.workout.exercise} name='exercise' key='edit_input2'>
             <option value='ride'>ride</option>
             <option value='run'>run</option>
           </select>,
-          <label htmlFor='description' key={edit_input3}>Description</label>,
-          <input id='description' defaultValue={this.props.workout.description} name='description'/>
+          <label htmlFor='description' key='edit_input3'>Description</label>,
+          <input id='description' defaultValue={this.props.workout.description} name='description' key='edit_input4'/>
         ]);
     }
   }
