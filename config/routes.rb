@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :update] do
       resources :workouts, only: [:index]
     end
-    resources :workouts, except: [:new, :edit]
+    resources :workouts, except: [:new, :edit] do
+      resources :comments, only: [:create, :update, :destroy]
+    end
+
     resources :routes, except: [:new, :edit]
   end
 

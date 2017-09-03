@@ -1,3 +1,5 @@
 class Comment < ApplicationRecord
-  validates :workout_id, :user_id, :body, presence: true
+  validates :workout, :user, :body, presence: true
+  belongs_to :user
+  belongs_to :workout
 end

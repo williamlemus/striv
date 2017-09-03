@@ -28,6 +28,7 @@ class User < ApplicationRecord
 
   has_many :workouts, dependent: :destroy
   has_many :routes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_attached_file :image, styles: { original: '132X132#' }, default_url: 'default_profile_picture.png'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
