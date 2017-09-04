@@ -277,11 +277,20 @@
 .comments-container {
   margin: 0 0 10px 20px;
   font-size: 13px;
-  width: 250px;
+  width: 260px;
 }
 
 .comments-container span {
   padding-left: 5px;
+}
+
+.delete-comment{
+  border: none;
+  background-color: inherit;
+  transition: all 1s;
+}
+.delete-comment:hover {
+  cursor: pointer;
 }
 
 .edit-workout-modal-screen {

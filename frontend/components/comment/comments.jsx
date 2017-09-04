@@ -6,10 +6,25 @@ class CommentsShow extends React.Component{
   constructor(props){
     super(props);
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.state = {
+      showDelete: 'hidden'
+    }
   }
 
   handleMouseEnter(e){
-    // Delete workout button will be made to appear here
+    this.setState({showDelete: ''})
+  }
+
+  handleMouseLeave(e){
+    this.setState({showDelete: 'hidden'})
+  }
+
+  handleDelete(e){
+    //will handle Delete
+    e.preventDefault();
+ 
   }
 
 
@@ -18,7 +33,7 @@ class CommentsShow extends React.Component{
       const comment_ids = this.props.comment_ids;
       const comments = this.props.comments;
       return(
-          <ul className='comments-container' onMouseEnter={this.handleMouseEnter}>
+          <ul className='comments-container' onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
             {
               comment_ids.map((id) =>{
                 return(
@@ -34,6 +49,7 @@ class CommentsShow extends React.Component{
                   <span>
                     {comments[id].body}
                   </span>
+                  <span><button className={this.state.showDelete + ' delete-comment'} onClick={this.handleDelete}>X</button></span>
                 </li>
               );
               })

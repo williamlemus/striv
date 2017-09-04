@@ -27,6 +27,11 @@ ul {
   list-style: none;
 }
 
+/*used for hiding comments */
+.hidden{
+  display: none;
+}
+
 body{
   height: 100vh;
   display: flex;
