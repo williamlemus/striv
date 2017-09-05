@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
   });
 };
 
-export default connect(mapStateToProps, null)(CommentsShow);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsShow);
