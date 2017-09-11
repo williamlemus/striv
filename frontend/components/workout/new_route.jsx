@@ -85,8 +85,10 @@ class NewRoute extends React.Component{
           polyline: this.directionsDisplay.directions.routes[0].overview_polyline,
           distance: this.directionsDisplay.directions.routes[0].legs[0].distance
         });
+        this.props.clearErrors();
       } else {
-        console.log('failed to display directions due to' + status);
+        lineCoords.pop();
+        this.props.receiveErrors(["Invalid point selected. Please try again"]);
       }
     });
   }
@@ -123,7 +125,6 @@ class NewRoute extends React.Component{
      routeDetails.distance = routeDetails.distance.value;
      //dispatch time!
 
-     //needs to be newRoute not workout and go to route page i guess?
      this.props.newRoute(routeDetails).then((res) =>{
        this.props.history.push(`/routes/${res.route.route.id}`);
      });
@@ -172,7 +173,13 @@ class NewRoute extends React.Component{
               If you want to add more points you can continue clicking on map.
               Each new click continue making a new route with the last clicked point as the end
             </li>
+            {
+              this.props.errors ? this.props.errors.map((el, idx)=>{
+              return <li className='error' key={'errors' + idx}>{el}</li>
+              }) : ''
+            }
           </ul>
+
         </div>
       </div>);
     } else {
