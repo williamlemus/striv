@@ -10,6 +10,8 @@ strīv is a full-stack web application inspired by Strava. It utilizes Ruby on R
 
 On the database side, maps are stored as encoded polylines which are then displayed when requested. The Google Maps API is used to render the route as the user selects points in real-time. The user can look at their own routes and edit the descriptions or delete them.
 
+![New Route Sample](https://github.com/williamlemus/striv/blob/master/docs/images/NewRoute.gif "New Route Sample")
+
 ### Workouts
 A user can generate as many workouts from any of their routes. In the backend this is stored as a one to many(one route can have many workouts) relationship. As the user navigates their or anyone's profile, stats are displayed. The Google static image API is used to display completed workouts.
 
