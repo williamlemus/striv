@@ -12,7 +12,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   newRoute: (route) => dispatch(newRoute({route: route})),
-  clearErrors: () => dispatch(receiveErrors([]))
+  clearErrors: () => dispatch(receiveErrors([])),
+  receiveErrors: (error) => dispatch(receiveErrors(error))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewRoute)
