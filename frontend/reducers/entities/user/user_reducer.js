@@ -15,9 +15,9 @@ export const UsersReducer = (state = {}, action) => {
       newState = Object.assign({}, state, action.routes.users);
       return newState;
     case RECEIVE_ALL_WORKOUTS:
-      newState = state;
+      newState = {}
       if(action.workouts.users){
-        newState = action.workouts.users;
+        newState = Object.assign({}, state, action.workouts.users);
       }
       return newState;
     case RECEIVE_WORKOUT:

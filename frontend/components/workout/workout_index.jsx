@@ -17,6 +17,12 @@ class WorkoutIndex extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps){
+    if(this.props.user_id !== newProps.user_id){
+      newProps.getWorkouts(newProps.user_id).then(() => this.setState({loaded_data: true}));
+    }
+  }
+
   render(){
     if( !this.state.loaded_data){
       return null;

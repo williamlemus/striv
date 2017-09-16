@@ -2,7 +2,7 @@ class Api::WorkoutsController < ApplicationController
 
   def index
     if params[:user_id]
-      @workouts = User.find(params[:user_id]).workouts
+      @workouts = User.includes(:comments, :routes).find(params[:user_id]).workouts
     else
       @workouts = Workout.includes(:user, :route, :comments).order(start_datetime: :desc)
     end

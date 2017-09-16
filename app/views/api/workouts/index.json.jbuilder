@@ -15,6 +15,19 @@ json.routes do
   end
 end
 
+
+user_image_urls = {}
+json.comments do
+  @workouts.each do |workout|
+    workout.comments.each do |comment|
+      json.set! comment.id do
+        json.partial!('api/comments/comment', comment: comment)
+        user_image_urls[comment.user_id] = comment.user
+      end
+    end
+  end
+end
+
 json.users do
   @workouts.each do |workout|
     json.set! workout.user.id do
@@ -23,12 +36,12 @@ json.users do
   end
 end
 
-json.comments do
-  @workouts.each do |workout|
-    workout.comments.each do |comment|
-      json.set! comment.id do
-        json.partial!('api/comments/comment', comment: comment)
-      end
+workout_user_ids = @workouts.map { |workout| workout.user.id }
+user_image_urls.each do |k, v|
+  next if workout_user_ids.include?(k)
+  json.users do
+    json.set! k do
+      json.partial!('api/users/user', user: v)
     end
   end
 end
