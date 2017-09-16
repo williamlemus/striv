@@ -10,7 +10,7 @@ class CommentItem extends React.Component {
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.state = {
-    showDelete: 'hidden'
+      showDelete: 'hidden'
     };
   }
 
@@ -33,18 +33,22 @@ class CommentItem extends React.Component {
   const user = this.props.user;
    return(
      <li key={this.props.id} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-       <Link to={'/users/' + comment.user_id}>
-         <span>
-           <img src={user.image_url} className='profile-pic' />
-         </span>
-         <span>
-           {user.first_name + ' ' + user.last_name}
-         </span>
-       </Link>
        <span>
-         {comment.body}
+         <Link to={'/users/' + comment.user_id}>
+           <span>
+             <img src={user.image_url} className='profile-pic' />
+           </span>
+         </Link>
        </span>
-       <span><button className={this.state.showDelete + ' delete-comment'} onClick={this.handleDelete}>X</button></span>
+       <span className='comment-body'>
+         <Link to={'/users/' + comment.user_id}>
+           <span>
+             {user.first_name + ' ' + user.last_name}
+           </span>
+        </Link>
+         {' ' + comment.body}
+       </span>
+       <span className={this.props.currentUser.id === user.id ? '' : 'hidden'}><button className={this.state.showDelete + ' delete-comment'} onClick={this.handleDelete}>X</button></span>
      </li>
    );
   }

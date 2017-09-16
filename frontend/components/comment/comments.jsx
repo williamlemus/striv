@@ -5,10 +5,7 @@ class CommentsShow extends React.Component{
 
   constructor(props){
     super(props);
-
   }
-
-
 
   render() {
     if(this.props.comment_ids.length > 0){
@@ -23,6 +20,7 @@ class CommentsShow extends React.Component{
                     key={id}
                     user={this.props.users[comments[id].user_id]}
                     comment={comments[id]}
+                    currentUser={this.props.currentUser}
                     deleteComment={this.props.deleteComment}
                      />
                 );

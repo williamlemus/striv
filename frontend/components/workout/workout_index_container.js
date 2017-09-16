@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import WorkoutIndex from './workout_index';
 import {allWorkouts} from '../../reducers/selectors';
 import {fetchAllWorkouts, fetchUserWorkouts} from '../../actions/workouts/workout_actions';
+import {addComment} from '../../actions/comments/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return({
@@ -16,7 +17,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return({
     getAllWorkouts: () => dispatch(fetchAllWorkouts()),
-    getWorkouts: userid => dispatch(fetchUserWorkouts(userid))
+    getWorkouts: userid => dispatch(fetchUserWorkouts(userid)),
+    addComment: comment => dispatch(addComment({comment: comment}))
   })
 };
 

@@ -31,15 +31,15 @@ class WorkoutIndex extends React.Component {
       }
       return(
         <div className='workout-index'>
-          <div>
+          <div className='workout-activity-feed'>
             <h1>Activity Feed</h1>
             <div className='workout-feed'>
               {
                 this.props.workouts.map((workout, idx) => {
                   return(
-                    <WorkoutIndexItem workout={workout} users={this.props.users} routes={this.props.routes}  key={idx} />
+                    <WorkoutIndexItem workout={workout} users={this.props.users} routes={this.props.routes}  key={idx} currentUser={this.props.currentUser} addComment={this.props.addComment} />
                   )
-                })
+                }).reverse()
               }
             </div>
           </div>
