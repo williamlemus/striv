@@ -65,7 +65,7 @@ class WorkoutIndexItem extends React.Component {
                 {route.distance/1000}km
               </span>
               <span>
-                <button onClick={this.toggleCommentBox}>&#x1f4ac;</button>
+                <button className='comment-toggle' onClick={this.toggleCommentBox}>&#x1f4ac;</button>
               </span>
             </div>
             <div>
@@ -81,7 +81,7 @@ class WorkoutIndexItem extends React.Component {
             </span>
             <span>
               <textarea onInput={this.handleInput} value={this.state.textarea}></textarea>
-              <button onClick={this.postComment}>Post</button>
+              <button className='comment-toggle' onClick={this.postComment}>Post</button>
             </span>
           </div>
       </div>);

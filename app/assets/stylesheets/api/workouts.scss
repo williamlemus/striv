@@ -240,7 +240,7 @@
 .workout-index-distance {
   font-family: 'Roboto', sans-serif;
   font-size: 13px;
-  padding-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .workout-index-title a:hover{
@@ -274,6 +274,21 @@
 .workout-info-container{
   display: flex;
   flex-direction: column;
+}
+
+.comment-toggle {
+  background-color: #eee;
+  border: 1px solid lightgray;
+  color: #333;
+  width: 45px;
+  height: 25px;
+  transition: all .5s;
+}
+
+.comment-toggle:hover {
+  cursor: pointer;
+  background-color: #777;
+  color: #eee;
 }
 
 .comments-container {
@@ -314,6 +329,7 @@
   background-color: inherit;
   transition: all 1s;
 }
+
 .delete-comment:hover {
   cursor: pointer;
 }
