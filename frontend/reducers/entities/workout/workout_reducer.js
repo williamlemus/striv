@@ -16,7 +16,7 @@ export const WorkoutsReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_COMMENT:
       newState = Object.assign({}, state);
-      newState[action.comment.workout_id].comment_ids.push(action.comment.id);
+      newState[action.comment.comment.workout_id].comment_ids.push(action.comment.comment.id);
       return newState;
     case REMOVE_COMMENT:
       newState = Object.assign({}, state);

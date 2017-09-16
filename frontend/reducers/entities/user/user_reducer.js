@@ -1,6 +1,7 @@
 import { RECEIVE_USER } from '../../../actions/users/user_actions';
 import { RECEIVE_ROUTE, RECEIVE_ROUTES } from '../../../actions/routes/route_actions';
 import { RECEIVE_WORKOUT, RECEIVE_ALL_WORKOUTS } from '../../../actions/workouts/workout_actions';
+import { RECEIVE_COMMENT} from '../../../actions/comments/comment_actions';
 
 export const UsersReducer = (state = {}, action) => {
   let newState;
@@ -22,6 +23,9 @@ export const UsersReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_WORKOUT:
       newState = Object.assign({}, state, {[action.workout.workout.user_id]: action.user})
+      return newState;
+    case RECEIVE_COMMENT:
+      newState = Object.assign({}, state, {[action.comment.user.id]: action.comment.user});
       return newState;
     default:
       return state;
