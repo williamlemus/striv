@@ -6,8 +6,4 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-
-test:
-  adapter: postgresql
-  database: travis_ci_test
+  - psql -c 'create database striv_test;' -U postgres
