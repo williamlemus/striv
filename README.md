@@ -1,4 +1,4 @@
-# strīv
+# strīv [![Build Status](https://travis-ci.org/williamlemus/striv.svg?branch=master)](http://travis-ci.org/williamlemus/striv)
 
 
 [strīv live](https://striv.herokuapp.com)
