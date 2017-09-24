@@ -20,8 +20,8 @@ export const WorkoutsReducer = (state = {}, action) => {
       return newState;
     case REMOVE_COMMENT:
       newState = Object.assign({}, state);
-      const comments_array = newState[action.comment.workout_id].comment_ids;
-      newState[action.comment.workout_id].comment_ids.splice(comments_array.indexOf(action.comment.id), 1);
+      const comments_array = newState[action.comment.comment.workout_id].comment_ids;
+      newState[action.comment.comment.workout_id].comment_ids.splice(comments_array.indexOf(action.comment.comment.id), 1);
       return newState;
     default:
       return state;
