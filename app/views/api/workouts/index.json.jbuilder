@@ -18,8 +18,9 @@ end
 
 user_image_urls = {}
 json.comments do
-  @workouts.each do |workout|
-    workout.comments.each do |comment|
+  @workouts.includes(comments: :user).each do |workout|
+    workout_comments = workout.comments
+    workout_comments.each do |comment|
       json.set! comment.id do
         json.partial!('api/comments/comment', comment: comment)
         user_image_urls[comment.user_id] = comment.user
