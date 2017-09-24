@@ -47,6 +47,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.6'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -60,6 +61,12 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
+end
+
+group :test do
+  gem 'faker'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

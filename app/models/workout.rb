@@ -24,7 +24,7 @@ class Workout < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def not_in_future
-    errors.add(:start_datetime, "cannot be in future") unless DateTime.now >start_datetime
+    errors.add(:start_datetime, "cannot be in future") unless DateTime.now > start_datetime
   end
 
 end
