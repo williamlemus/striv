@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Workout, type: :model do
+
   describe 'Validations' do
     subject { FactoryGirl.build(:workout) }
     it { should validate_presence_of(:title) }
@@ -12,5 +13,11 @@ RSpec.describe Workout, type: :model do
       expect(FactoryGirl.build(:workout, start_datetime: 1.day.from_now)).not_to be_valid
       expect(FactoryGirl.build(:workout, start_datetime: 1.day.ago)).to be_valid
     end
+  end
+
+  describe 'Associations' do
+    it { should belong_to(:user) }
+    it { should belong_to(:route) }
+    it { should have_many(:comments).dependent(:destroy) }
   end
 end
