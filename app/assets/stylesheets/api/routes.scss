@@ -74,18 +74,20 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  padding-right: 10px;
 }
 
 .route-stats {
   display: flex;
 }
 
+.route-stats div ul {
+  padding-left: 10px;
+}
+
 
 .route-stats li{
   display: flex;
   flex-direction: column;
-  padding-right: 15px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -101,6 +103,11 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 12px;
+  padding-left: 10px;
+}
+
+.route-user-name{
+  padding-left: 10px;
 }
 
 .route-feed{
