@@ -34,7 +34,7 @@ gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'mini_portile2', '~> 2.2.0'
+gem 'mini_portile2', '~> 2.3.0'
 group :production do
   gem 'newrelic_rpm'
 end
