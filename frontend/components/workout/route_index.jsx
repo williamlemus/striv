@@ -61,7 +61,7 @@ class RoutesIndex extends React.Component {
       return(
         [
           <label htmlFor='title' key='edit_input10'>Title</label>,
-          <input id='title' defaultValue={this.state.title} name='title' key='edit_input11'/>
+          <input type='text' id='title' defaultValue={this.state.title} name='title' key='edit_input11'/>
         ]);
     }
   }
