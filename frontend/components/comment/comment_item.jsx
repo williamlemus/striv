@@ -23,16 +23,14 @@ class CommentItem extends React.Component {
   }
 
   handleDelete(e){
-    //will handle Delete
     e.preventDefault();
     this.props.deleteComment(this.props.comment);
   }
 
   render(){
-  const comment = this.props.comment;
-  const user = this.props.user;
-   return(
-     <li key={this.props.id} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+    const {user, comment, id, currentUser} = this.props;
+    return(
+     <li key={id} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
        <span>
          <Link to={'/users/' + comment.user_id}>
            <span>
@@ -48,7 +46,7 @@ class CommentItem extends React.Component {
         </Link>
          {' ' + comment.body}
        </span>
-       <span className={this.props.currentUser.id === user.id ? '' : 'hidden'}><button className={this.state.showDelete + ' delete-comment'} onClick={this.handleDelete}>X</button></span>
+       <span className={currentUser.id === user.id ? '' : 'hidden'}><button className={this.state.showDelete + ' delete-comment'} onClick={this.handleDelete}>X</button></span>
      </li>
    );
   }
