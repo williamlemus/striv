@@ -84,18 +84,19 @@ class RoutesIndex extends React.Component {
   }
 
   render(){
+    const { users, currentUser, routes, user_id } = this.props;
     if( !this.state.loaded_data){
       return null;
-    } else if(this.props.routes.length === 0){
+    } else if(routes.length === 0){
       return( <h2>Add some <Link to='new-route'>routes</Link></h2>);
     } else {
       let user;
       let title = ''
-      if(this.props.user_id){
-        user = this.props.users[this.props.user_id];
+      if(user_id){
+        user = users[user_id];
         title = user.first_name + "'s"
       } else {
-        user = this.props.currentUser;
+        user = currentUser;
         title = 'Your';
       }
       return(
@@ -104,9 +105,9 @@ class RoutesIndex extends React.Component {
             <h1>{title} Routes</h1>
             <div className='route-feed'>
               {
-                this.props.routes.map((route, idx) => {
+                routes.map((route, idx) => {
                   return(
-                    <RoutesIndexItem route={route} users={this.props.users} currentUser = {this.props.currentUser} toggleModal={this.toggleModal} key={idx} />
+                    <RoutesIndexItem route={route} users={users} currentUser = {currentUser} toggleModal={this.toggleModal} key={idx} />
                   )
                 })
               }
