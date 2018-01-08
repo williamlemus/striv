@@ -13,10 +13,8 @@ import {Route, Switch} from 'react-router-dom';
 import {AuthRoute, ProtectedRoute} from '../../util/route_util';
 
 
-class App extends React.Component {
-
-  render(){
-    let background = this.props.currentUser ? 'page' : 'page login-background'
+const App = ({currentUser}) => {
+    let background = currentUser ? 'page' : 'page login-background'
     return(
         <div>
 
@@ -39,6 +37,6 @@ class App extends React.Component {
           </div>
         </div>
     );
-  }
 }
+
 export default App;
