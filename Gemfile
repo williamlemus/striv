@@ -7,7 +7,7 @@ end
 
 gem 'paperclip'
 gem 'figaro'
-gem 'aws-sdk', '<3.0'
+gem 'aws-sdk-s3', '<3.0'
 gem 'font-awesome-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
